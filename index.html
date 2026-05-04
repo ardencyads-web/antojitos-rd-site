@@ -249,6 +249,21 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.05)}
   margin:0 8px;
   flex-shrink:0;
 }
+.lang-toggle{
+  display:inline-flex;align-items:center;gap:5px;
+  background:transparent;border:1px solid var(--border);
+  border-radius:100px;padding:5px 11px;
+  font-family:'Outfit',sans-serif;font-weight:700;font-size:.72rem;
+  letter-spacing:.5px;
+  color:var(--muted);
+  cursor:pointer;
+  transition:all .2s;
+}
+.lang-toggle:hover{border-color:rgba(0,0,0,.16);color:var(--dark)}
+.lang-toggle .lt-opt{transition:color .2s}
+.lang-toggle[data-lang="en"] .lt-opt[data-lang="en"],
+.lang-toggle[data-lang="es"] .lt-opt[data-lang="es"]{color:var(--red)}
+.lang-toggle .lt-sep{color:var(--border);font-weight:400}
 .nav-phone{
   display:flex;align-items:center;gap:6px;
   text-decoration:none;
@@ -1637,6 +1652,7 @@ footer::before{
   .nav-links a:hover,.nav-links a:active{background:rgba(0,0,0,.03)}
   .nav-links a::after{display:none !important}
   .nav-divider{display:none}
+  .lang-toggle{font-size:.84rem;padding:8px 16px}
   .nav-phone{font-size:1rem}
   .nav-phone svg{display:inline}
   .nav-order{
@@ -1846,13 +1862,18 @@ footer::before{
   <div class="nav-inner container">
     <a href="#" class="nav-brand" aria-label="Antojitos RD home"><img src="assets/logo.png" alt="Antojitos RD" class="nav-logo-img" width="200" height="186" decoding="async"></a>
     <div class="nav-links" id="navLinks">
-      <a href="#menu-section">Menu</a>
-      <a href="#story">About</a>
-      <a href="#visit">Visit</a>
+      <a href="#menu-section" data-i18n="nav.menu">Menu</a>
+      <a href="#story" data-i18n="nav.about">About</a>
+      <a href="#visit" data-i18n="nav.visit">Visit</a>
       <a href="https://www.instagram.com/antojitos1rd/" target="_blank">Instagram</a>
       <div class="nav-divider"></div>
+      <button class="lang-toggle" type="button" aria-label="Switch language" data-i18n-aria="nav.lang_label">
+        <span class="lt-opt" data-lang="en">EN</span>
+        <span class="lt-sep" aria-hidden="true">|</span>
+        <span class="lt-opt" data-lang="es">ES</span>
+      </button>
       <a href="tel:9294930916" class="nav-phone"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>(929) 493-0916</a>
-      <a href="https://order.online/store/-31897311/?hideModal=true&utm_source=gfo&rwg_token=AFd1xnGzGELZSziXa2oJPRgkWZcxdvsc4mOVr5M_KGBFR9_Gh4G47ZeNIPNXB9y-mQR-x4u9dGRWzT3eD0MYM1sg2s4Z3bhvnQ%3D%3D&pickup=true" target="_blank" class="nav-order">Order Now</a>
+      <a href="https://order.online/store/-31897311/?hideModal=true&utm_source=gfo&rwg_token=AFd1xnGzGELZSziXa2oJPRgkWZcxdvsc4mOVr5M_KGBFR9_Gh4G47ZeNIPNXB9y-mQR-x4u9dGRWzT3eD0MYM1sg2s4Z3bhvnQ%3D%3D&pickup=true" target="_blank" class="nav-order" data-i18n="nav.order">Order Now</a>
     </div>
     <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
       <span></span><span></span><span></span>
@@ -1865,33 +1886,33 @@ footer::before{
 <!-- HERO -->
 <section class="hero" aria-labelledby="hero-heading">
   <div class="hero-left">
-    <div class="hero-tag reveal"><span class="line"></span> Dominican Street Food</div>
+    <div class="hero-tag reveal"><span class="line"></span> <span data-i18n="hero.tag">Dominican Street Food</span></div>
     <h1 id="hero-heading" class="reveal">La Mejor <span class="accent">Fritura</span> Dominicana.</h1>
-    <p class="hero-desc reveal">Real Dominican street food at 611 Bay St, Staten Island. Chimis, mofongo, yaroa, empanadas — hand-made daily, the way they're supposed to taste.</p>
+    <p class="hero-desc reveal" data-i18n="hero.desc">Real Dominican street food at 611 Bay St, Staten Island. Chimis, mofongo, yaroa, empanadas — hand-made daily, the way they're supposed to taste.</p>
     <div class="hero-actions reveal">
-      <a href="https://order.online/store/-31897311/?hideModal=true&utm_source=gfo&rwg_token=AFd1xnGzGELZSziXa2oJPRgkWZcxdvsc4mOVr5M_KGBFR9_Gh4G47ZeNIPNXB9y-mQR-x4u9dGRWzT3eD0MYM1sg2s4Z3bhvnQ%3D%3D&pickup=true" target="_blank" class="btn-fill">Order Pickup &rarr;</a>
-      <a href="#menu-section" class="btn-ghost">See the Menu</a>
+      <a href="https://order.online/store/-31897311/?hideModal=true&utm_source=gfo&rwg_token=AFd1xnGzGELZSziXa2oJPRgkWZcxdvsc4mOVr5M_KGBFR9_Gh4G47ZeNIPNXB9y-mQR-x4u9dGRWzT3eD0MYM1sg2s4Z3bhvnQ%3D%3D&pickup=true" target="_blank" class="btn-fill" data-i18n="hero.cta_pickup">Order Pickup →</a>
+      <a href="#menu-section" class="btn-ghost" data-i18n="hero.cta_menu">See the Menu</a>
     </div>
     <div class="hero-info-row reveal">
       <div class="hero-info-item">
         <div class="icon-circle" aria-hidden="true">📍</div>
         <div class="info-text">
-          <div class="label">Location</div>
+          <div class="label" data-i18n="hero.location">Location</div>
           <div class="value">611 Bay St, SI</div>
         </div>
       </div>
       <div class="hero-info-item">
         <div class="icon-circle" aria-hidden="true">⭐</div>
         <div class="info-text">
-          <div class="label">Rating</div>
+          <div class="label" data-i18n="hero.rating">Rating</div>
           <div class="value">4.4 / 5.0</div>
         </div>
       </div>
       <div class="hero-info-item">
         <div class="icon-circle" aria-hidden="true">🕐</div>
         <div class="info-text">
-          <div class="label">Hours</div>
-          <div class="value">10AM – Late</div>
+          <div class="label" data-i18n="hero.hours">Hours</div>
+          <div class="value" data-i18n="hero.hours_value">10AM – Late</div>
         </div>
       </div>
     </div>
@@ -1920,9 +1941,9 @@ footer::before{
 <section class="featured" aria-labelledby="featured-heading">
   <div class="featured-inner">
     <div class="featured-top reveal">
-      <div class="featured-tag">Most Loved</div>
-      <h2 id="featured-heading">Fan Favorites</h2>
-      <p>The dishes our regulars come back for.</p>
+      <div class="featured-tag" data-i18n="feat.tag">Most Loved</div>
+      <h2 id="featured-heading" data-i18n="feat.heading">Fan Favorites</h2>
+      <p data-i18n="feat.sub">The dishes our regulars come back for.</p>
     </div>
     <div class="featured-grid">
       <a href="#menu-section" class="feat-card f1 reveal">
@@ -1979,22 +2000,22 @@ footer::before{
     <!-- Header -->
     <div class="menu-top reveal">
       <div class="mt-tag">Nuestro Menú</div>
-      <h2>What We're Serving</h2>
-      <div class="mt-sub">Fresh Dominican street food — 40+ items, made to order.</div>
+      <h2 data-i18n="menu.heading">What We're Serving</h2>
+      <div class="mt-sub" data-i18n="menu.sub">Fresh Dominican street food — 40+ items, made to order.</div>
     </div>
 
     <!-- Search + Filter -->
     <div class="menu-search-row reveal">
       <label class="menu-search">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke-linecap="round" stroke-linejoin="round"/><line x1="20" y1="20" x2="16.5" y2="16.5" stroke-linecap="round"/></svg>
-        <input type="search" id="menuSearch" placeholder="Search menu — chimi, mofongo, yaroa…" aria-label="Search menu items">
+        <input type="search" id="menuSearch" placeholder="Search menu — chimi, mofongo, yaroa…" data-i18n-placeholder="menu.search" aria-label="Search menu items">
       </label>
     </div>
     <div class="menu-filters reveal" role="group" aria-label="Menu filters">
-      <button class="menu-filter active" data-filter="all">All Items</button>
-      <button class="menu-filter" data-filter="popular">🔥 Popular</button>
-      <button class="menu-filter" data-filter="top">⭐ Top Rated</button>
-      <button class="menu-filter" data-filter="big">📦 Big Platters</button>
+      <button class="menu-filter active" data-filter="all" data-i18n="menu.filter_all">All Items</button>
+      <button class="menu-filter" data-filter="popular" data-i18n="menu.filter_popular">🔥 Popular</button>
+      <button class="menu-filter" data-filter="top" data-i18n="menu.filter_top">⭐ Top Rated</button>
+      <button class="menu-filter" data-filter="big" data-i18n="menu.filter_big">📦 Big Platters</button>
     </div>
 
     <!-- Category Tabs -->
@@ -2016,7 +2037,7 @@ footer::before{
 
     <!-- Order CTA -->
     <div class="menu-order-cta">
-      <a href="https://order.online/store/-31897311/?hideModal=true&utm_source=gfo&rwg_token=AFd1xnGzGELZSziXa2oJPRgkWZcxdvsc4mOVr5M_KGBFR9_Gh4G47ZeNIPNXB9y-mQR-x4u9dGRWzT3eD0MYM1sg2s4Z3bhvnQ%3D%3D&pickup=true" target="_blank" class="btn-fill">Order Online &rarr;</a>
+      <a href="https://order.online/store/-31897311/?hideModal=true&utm_source=gfo&rwg_token=AFd1xnGzGELZSziXa2oJPRgkWZcxdvsc4mOVr5M_KGBFR9_Gh4G47ZeNIPNXB9y-mQR-x4u9dGRWzT3eD0MYM1sg2s4Z3bhvnQ%3D%3D&pickup=true" target="_blank" class="btn-fill" data-i18n="menu.cta_order">Order Online →</a>
     </div>
   </div>
 </section>
@@ -2031,17 +2052,17 @@ footer::before{
         <span class="status-sep" aria-hidden="true">·</span>
         <span class="status-eta">~25 min delivery</span>
       </div>
-      <div class="section-tag">Order Delivery</div>
-      <h2>Get It Delivered Your Way</h2>
-      <p class="delivery-sub">Available on all major platforms. Pick your favorite and order in minutes.</p>
+      <div class="section-tag" data-i18n="delivery.tag">Order Delivery</div>
+      <h2 data-i18n="delivery.heading">Get It Delivered Your Way</h2>
+      <p class="delivery-sub" data-i18n="delivery.sub">Available on all major platforms. Pick your favorite and order in minutes.</p>
     </div>
     <div class="delivery-grid">
       <a href="https://www.doordash.com/en-US/store/antojitos-rd-staten-island-31897311" target="_blank" class="del-card del-featured reveal">
-        <span class="del-badge" aria-label="Most popular delivery option">Most Popular</span>
+        <span class="del-badge" data-i18n="delivery.badge_popular" aria-label="Most popular delivery option">Most Popular</span>
         <div class="del-icon doordash"><img src="assets/logo-doordash.png" alt="DoorDash" loading="lazy" decoding="async"></div>
         <div class="del-text">
           <div class="del-name">DoorDash</div>
-          <div class="del-sub">Delivery fee $2.49</div>
+          <div class="del-sub" data-i18n="delivery.fee_249">Delivery fee $2.49</div>
         </div>
         <span class="del-arrow">→</span>
       </a>
@@ -2049,7 +2070,7 @@ footer::before{
         <div class="del-icon grubhub"><img src="assets/logo-grubhub.png" alt="Grubhub" loading="lazy" decoding="async"></div>
         <div class="del-text">
           <div class="del-name">Grubhub</div>
-          <div class="del-sub">No delivery fee</div>
+          <div class="del-sub" data-i18n="delivery.no_fee">No delivery fee</div>
         </div>
         <span class="del-arrow">→</span>
       </a>
@@ -2057,7 +2078,7 @@ footer::before{
         <div class="del-icon ubereats"><img src="assets/logo-ubereats.png" alt="Uber Eats" loading="lazy" decoding="async"></div>
         <div class="del-text">
           <div class="del-name">Uber Eats</div>
-          <div class="del-sub">Fees from $0.50</div>
+          <div class="del-sub" data-i18n="delivery.fee_050">Fees from $0.50</div>
         </div>
         <span class="del-arrow">→</span>
       </a>
@@ -2065,7 +2086,7 @@ footer::before{
         <div class="del-icon postmates"><img src="assets/logo-postmates.png" alt="Postmates" loading="lazy" decoding="async"></div>
         <div class="del-text">
           <div class="del-name">Postmates</div>
-          <div class="del-sub">Fees from $0.50</div>
+          <div class="del-sub" data-i18n="delivery.fee_050">Fees from $0.50</div>
         </div>
         <span class="del-arrow">→</span>
       </a>
@@ -2073,16 +2094,16 @@ footer::before{
         <div class="del-icon seamless"><img src="assets/logo-seamless.jpg" alt="Seamless" loading="lazy" decoding="async"></div>
         <div class="del-text">
           <div class="del-name">Seamless</div>
-          <div class="del-sub">No delivery fee</div>
+          <div class="del-sub" data-i18n="delivery.no_fee">No delivery fee</div>
         </div>
         <span class="del-arrow">→</span>
       </a>
       <a href="https://order.online/store/-31897311/?hideModal=true&utm_source=gfo&rwg_token=AFd1xnGzGELZSziXa2oJPRgkWZcxdvsc4mOVr5M_KGBFR9_Gh4G47ZeNIPNXB9y-mQR-x4u9dGRWzT3eD0MYM1sg2s4Z3bhvnQ%3D%3D&pickup=true" target="_blank" class="del-card del-pickup-feature reveal">
-        <span class="del-badge del-badge-gold" aria-label="Save on delivery fees with pickup">Skip the Fees</span>
+        <span class="del-badge del-badge-gold" data-i18n="delivery.badge_pickup" aria-label="Save on delivery fees with pickup">Skip the Fees</span>
         <div class="del-icon pickup"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
         <div class="del-text">
-          <div class="del-name">Pickup</div>
-          <div class="del-sub">Order ahead · ready in ~10 min</div>
+          <div class="del-name" data-i18n="delivery.pickup_name">Pickup</div>
+          <div class="del-sub" data-i18n="delivery.pickup_sub">Order ahead · ready in ~10 min</div>
         </div>
         <span class="del-arrow">→</span>
       </a>
@@ -2094,8 +2115,8 @@ footer::before{
 <section class="reviews" aria-labelledby="reviews-heading">
   <div class="reviews-inner">
     <div class="reviews-top reveal">
-      <div class="rt-tag">What People Are Saying</div>
-      <h2 id="reviews-heading">Real Reviews, Real Hungry People.</h2>
+      <div class="rt-tag" data-i18n="reviews.tag">What People Are Saying</div>
+      <h2 id="reviews-heading" data-i18n="reviews.heading">Real Reviews, Real Hungry People.</h2>
       <div class="reviews-rating" aria-label="4.4 out of 5 stars from 200+ reviews on Google">
         <span class="rr-google" aria-hidden="true">
           <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
@@ -2109,7 +2130,7 @@ footer::before{
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </span>
-        <span class="rr-count">200+ reviews</span>
+        <span class="rr-count" data-i18n="reviews.count">200+ reviews</span>
       </div>
     </div>
     <div class="reviews-grid">
@@ -2168,7 +2189,7 @@ footer::before{
     <div class="reviews-cta">
       <a href="https://www.google.com/search?q=Antojitos+RD+Staten+Island" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-        Read all reviews on Google
+        <span data-i18n="reviews.cta">Read all reviews on Google</span>
         <span aria-hidden="true">→</span>
       </a>
     </div>
@@ -2179,9 +2200,9 @@ footer::before{
 <section class="gallery" aria-labelledby="gallery-heading">
   <div class="gallery-inner">
     <div class="gallery-header reveal">
-      <div class="section-tag">Fresh from the Kitchen</div>
-      <h2 id="gallery-heading">Real Food, Real Hungry People.</h2>
-      <p class="gallery-sub">Made by hand, every day. Follow along on Instagram for daily specials and behind-the-scenes.</p>
+      <div class="section-tag" data-i18n="gallery.tag">Fresh from the Kitchen</div>
+      <h2 id="gallery-heading" data-i18n="gallery.heading">Real Food, Real Hungry People.</h2>
+      <p class="gallery-sub" data-i18n="gallery.sub">Made by hand, every day. Follow along on Instagram for daily specials and behind-the-scenes.</p>
     </div>
     <div class="gallery-grid reveal">
       <a href="https://www.instagram.com/antojitos1rd/" target="_blank" rel="noopener" class="gallery-tile gallery-tile-1" aria-label="Mofongo on Instagram">
@@ -2205,7 +2226,7 @@ footer::before{
           <rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
         </svg>
         <span class="gallery-cta-handle">@antojitos1rd</span>
-        <span class="gallery-cta-text">See more on Instagram →</span>
+        <span class="gallery-cta-text" data-i18n="gallery.cta">See more on Instagram →</span>
       </a>
     </div>
   </div>
@@ -2218,36 +2239,36 @@ footer::before{
     <div class="story-inner">
 
       <div class="story-label reveal">
-        <div class="sl-tag">Our Story</div>
+        <div class="sl-tag" data-i18n="story.tag">Our Story</div>
       </div>
 
       <div class="story-logo reveal"><img src="assets/logo-large.png" alt="Antojitos RD" width="300" height="280" loading="lazy" decoding="async"></div>
       <div class="story-headline reveal">
-        <h2 id="story-heading">Dominican <span>Roots</span>,<br>New York Hustle.</h2>
+        <h2 id="story-heading" data-i18n-html="story.heading">Dominican <span>Roots</span>,<br>New York Hustle.</h2>
       </div>
 
       <div class="story-body">
-        <p class="reveal">Antojitos RD brings the vibrant energy of Dominican street food to the heart of Staten Island. Every dish is a tribute to the cravings — <em>"antojitos"</em> — that define Dominican culture.</p>
-        <p class="reveal">From crispy chimis to loaded yaroas, we cook with the same fire and flavor you'd find on any corner in Santo Domingo. Family recipes, fresh ingredients, no shortcuts — that's the Antojitos way.</p>
+        <p class="reveal" data-i18n-html="story.body1">Antojitos RD brings the vibrant energy of Dominican street food to the heart of Staten Island. Every dish is a tribute to the cravings — <em>"antojitos"</em> — that define Dominican culture.</p>
+        <p class="reveal" data-i18n="story.body2">From crispy chimis to loaded yaroas, we cook with the same fire and flavor you'd find on any corner in Santo Domingo. Family recipes, fresh ingredients, no shortcuts — that's the Antojitos way.</p>
       </div>
 
       <blockquote class="story-quote reveal">
-        <p>From our kitchen to your table — every plate carries a piece of home.</p>
-        <cite>— The Antojitos Family</cite>
+        <p data-i18n="story.quote">From our kitchen to your table — every plate carries a piece of home.</p>
+        <cite data-i18n="story.cite">— The Antojitos Family</cite>
       </blockquote>
 
       <div class="story-stats-strip reveal">
         <div class="ss-item">
           <span class="stat-num">4.4</span>
-          <span class="ss-label">Star Rating</span>
+          <span class="ss-label" data-i18n="story.stat1">Star Rating</span>
         </div>
         <div class="ss-item">
           <span class="stat-num">200+</span>
-          <span class="ss-label">Happy Reviews</span>
+          <span class="ss-label" data-i18n="story.stat2">Happy Reviews</span>
         </div>
         <div class="ss-item">
           <span class="stat-num">7</span>
-          <span class="ss-label">Days Open</span>
+          <span class="ss-label" data-i18n="story.stat3">Days Open</span>
         </div>
       </div>
 
@@ -2266,24 +2287,24 @@ footer::before{
       <img src="assets/food-yaroa.jpg" alt="Catering platter" loading="lazy" decoding="async">
       <div class="catering-photo-tag" aria-hidden="true">
         <span class="cpt-icon">🎉</span>
-        <span>For Every Celebration</span>
+        <span data-i18n="catering.celebration">For Every Celebration</span>
       </div>
     </div>
     <div class="catering-content reveal-right">
-      <div class="section-tag">Catering &amp; Big Orders</div>
-      <h2 id="catering-heading">Cater Your Next Event</h2>
-      <p class="catering-sub">Quinceañeras, baptisms, office lunches, family reunions, backyard parties — we cook for every kind of celebration. Real Dominican food, made by hand, plenty for everyone.</p>
+      <div class="section-tag" data-i18n="catering.tag">Catering &amp; Big Orders</div>
+      <h2 id="catering-heading" data-i18n="catering.heading">Cater Your Next Event</h2>
+      <p class="catering-sub" data-i18n="catering.sub">Quinceañeras, baptisms, office lunches, family reunions, backyard parties — we cook for every kind of celebration. Real Dominican food, made by hand, plenty for everyone.</p>
       <ul class="catering-points">
-        <li><span class="cp-check" aria-hidden="true">✓</span> Group trays priced for crowds of 10–100+</li>
-        <li><span class="cp-check" aria-hidden="true">✓</span> Custom menus for dietary needs &amp; favorites</li>
-        <li><span class="cp-check" aria-hidden="true">✓</span> 48-hour notice preferred for big events</li>
+        <li><span class="cp-check" aria-hidden="true">✓</span> <span data-i18n="catering.point1">Group trays priced for crowds of 10–100+</span></li>
+        <li><span class="cp-check" aria-hidden="true">✓</span> <span data-i18n="catering.point2">Custom menus for dietary needs &amp; favorites</span></li>
+        <li><span class="cp-check" aria-hidden="true">✓</span> <span data-i18n="catering.point3">48-hour notice preferred for big events</span></li>
       </ul>
       <div class="catering-actions">
         <a href="tel:9294930916" class="btn-fill">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          Call to Plan
+          <span data-i18n="catering.cta_call">Call to Plan</span>
         </a>
-        <a href="https://www.instagram.com/antojitos1rd/" target="_blank" rel="noopener" class="btn-ghost">DM on Instagram →</a>
+        <a href="https://www.instagram.com/antojitos1rd/" target="_blank" rel="noopener" class="btn-ghost" data-i18n="catering.cta_dm">DM on Instagram →</a>
       </div>
     </div>
   </div>
@@ -2294,8 +2315,8 @@ footer::before{
   <div class="container">
     <div class="visit-inner">
       <div class="visit-header reveal">
-        <div class="section-tag">Find Us</div>
-        <h2>Come Through.</h2>
+        <div class="section-tag" data-i18n="visit.tag">Find Us</div>
+        <h2 data-i18n="visit.heading">Come Through.</h2>
       </div>
 
       <div class="visit-map reveal">
@@ -2305,15 +2326,15 @@ footer::before{
       <div class="visit-strip reveal">
         <div class="vs-item">
           <div class="vs-icon red"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div><div class="vs-label">Address</div><div class="vs-val">611 Bay St, SI 10304</div></div>
+          <div><div class="vs-label" data-i18n="visit.address">Address</div><div class="vs-val">611 Bay St, SI 10304</div></div>
         </div>
         <a href="tel:9294930916" class="vs-item">
           <div class="vs-icon dark"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.11 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-          <div><div class="vs-label">Call Us</div><div class="vs-val">(929) 493-0916</div></div>
+          <div><div class="vs-label" data-i18n="visit.call">Call Us</div><div class="vs-val">(929) 493-0916</div></div>
         </a>
         <div class="vs-item">
           <div class="vs-icon gold"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-          <div><div class="vs-label">Hours</div><div class="vs-val"><span class="hours-line">Sun–Thu: 10AM – 10PM</span><span class="hours-line">Fri–Sat: 10AM – 12AM</span></div></div>
+          <div><div class="vs-label" data-i18n="visit.hours">Hours</div><div class="vs-val"><span class="hours-line" data-i18n="visit.hours1">Sun–Thu: 10AM – 10PM</span><span class="hours-line" data-i18n="visit.hours2">Fri–Sat: 10AM – 12AM</span></div></div>
         </div>
         <a href="https://www.instagram.com/antojitos1rd/" target="_blank" class="vs-item">
           <div class="vs-icon pink"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
@@ -2324,7 +2345,7 @@ footer::before{
       <div class="visit-bottom">
         <a href="https://order.online/store/-31897311/?hideModal=true&utm_source=gfo&rwg_token=AFd1xnGzGELZSziXa2oJPRgkWZcxdvsc4mOVr5M_KGBFR9_Gh4G47ZeNIPNXB9y-mQR-x4u9dGRWzT3eD0MYM1sg2s4Z3bhvnQ%3D%3D&pickup=true" target="_blank" class="vb-card reveal">
           <div class="vb-icon pk"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
-          <div><div class="vb-name">Order Pickup</div><div class="vb-sub">Skip the wait</div></div>
+          <div><div class="vb-name" data-i18n="visit.pickup_name">Order Pickup</div><div class="vb-sub" data-i18n="visit.pickup_sub">Skip the wait</div></div>
           <span class="vb-arrow">→</span>
         </a>
         <a href="https://www.doordash.com/en-US/store/antojitos-rd-staten-island-31897311" target="_blank" class="vb-card reveal">
@@ -2359,16 +2380,16 @@ footer::before{
 
 <!-- CTA -->
 <section class="cta">
-  <h2 class="reveal">Hungry Yet?</h2>
-  <p class="reveal">Skip the line. Order online for pickup or delivery.</p>
-  <a href="https://order.online/store/-31897311/?hideModal=true&utm_source=gfo&rwg_token=AFd1xnGzGELZSziXa2oJPRgkWZcxdvsc4mOVr5M_KGBFR9_Gh4G47ZeNIPNXB9y-mQR-x4u9dGRWzT3eD0MYM1sg2s4Z3bhvnQ%3D%3D&pickup=true" target="_blank" class="btn-white reveal">Order Now &rarr;</a>
+  <h2 class="reveal" data-i18n="cta.heading">Hungry Yet?</h2>
+  <p class="reveal" data-i18n="cta.sub">Skip the line. Order online for pickup or delivery.</p>
+  <a href="https://order.online/store/-31897311/?hideModal=true&utm_source=gfo&rwg_token=AFd1xnGzGELZSziXa2oJPRgkWZcxdvsc4mOVr5M_KGBFR9_Gh4G47ZeNIPNXB9y-mQR-x4u9dGRWzT3eD0MYM1sg2s4Z3bhvnQ%3D%3D&pickup=true" target="_blank" class="btn-white reveal" data-i18n="cta.button">Order Now →</a>
 </section>
 
 </main>
 
 <!-- MOBILE STICKY CTA -->
 <div class="mobile-cta-bar" role="region" aria-label="Quick order actions">
-  <a href="https://order.online/store/-31897311/?hideModal=true&utm_source=gfo&rwg_token=AFd1xnGzGELZSziXa2oJPRgkWZcxdvsc4mOVr5M_KGBFR9_Gh4G47ZeNIPNXB9y-mQR-x4u9dGRWzT3eD0MYM1sg2s4Z3bhvnQ%3D%3D&pickup=true" target="_blank" class="mobile-cta-order">Order Now &rarr;</a>
+  <a href="https://order.online/store/-31897311/?hideModal=true&utm_source=gfo&rwg_token=AFd1xnGzGELZSziXa2oJPRgkWZcxdvsc4mOVr5M_KGBFR9_Gh4G47ZeNIPNXB9y-mQR-x4u9dGRWzT3eD0MYM1sg2s4Z3bhvnQ%3D%3D&pickup=true" target="_blank" class="mobile-cta-order" data-i18n="mobile.order">Order Now →</a>
   <a href="tel:9294930916" class="mobile-cta-call" aria-label="Call (929) 493-0916">
     <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
   </a>
@@ -2380,30 +2401,30 @@ footer::before{
     <div class="footer-inner">
       <div class="footer-col footer-brand">
         <img src="assets/logo.png" alt="Antojitos RD" class="footer-logo-img" width="200" height="186" loading="lazy" decoding="async">
-        <p class="footer-tagline"><em>La Mejor Fritura Dominicana.</em> Hand-made daily on Bay Street, Staten Island.</p>
+        <p class="footer-tagline" data-i18n-html="footer.tagline"><em>La Mejor Fritura Dominicana.</em> Hand-made daily on Bay Street, Staten Island.</p>
       </div>
       <div class="footer-col">
-        <h4>Visit</h4>
+        <h4 data-i18n="footer.visit">Visit</h4>
         <ul class="footer-list">
           <li><a href="https://www.google.com/maps/place/611+Bay+St,+Staten+Island,+NY+10304" target="_blank" rel="noopener">611 Bay St<br><span class="fl-small">Staten Island, NY 10304</span></a></li>
           <li><a href="tel:9294930916">(929) 493-0916</a></li>
-          <li><span class="fl-small">Sun–Thu: 10AM – 10PM</span></li>
-          <li><span class="fl-small">Fri–Sat: 10AM – 12AM</span></li>
+          <li><span class="fl-small" data-i18n="visit.hours1">Sun–Thu: 10AM – 10PM</span></li>
+          <li><span class="fl-small" data-i18n="visit.hours2">Fri–Sat: 10AM – 12AM</span></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Explore</h4>
+        <h4 data-i18n="footer.explore">Explore</h4>
         <ul class="footer-list">
-          <li><a href="#menu-section">Menu</a></li>
-          <li><a href="#story">Our Story</a></li>
-          <li><a href="#visit">Find Us</a></li>
+          <li><a href="#menu-section" data-i18n="nav.menu">Menu</a></li>
+          <li><a href="#story" data-i18n="footer.story">Our Story</a></li>
+          <li><a href="#visit" data-i18n="visit.tag">Find Us</a></li>
           <li><a href="https://www.instagram.com/antojitos1rd/" target="_blank" rel="noopener">Instagram ↗</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-copy">&copy; 2026 Antojitos RD. All rights reserved.</div>
-      <div class="footer-credit"><a href="https://ardencyads.com" target="_blank" rel="noopener">Website by Ardency</a></div>
+      <div class="footer-copy" data-i18n="footer.copy">© 2026 Antojitos RD. All rights reserved.</div>
+      <div class="footer-credit"><a href="https://ardencyads.com" target="_blank" rel="noopener" data-i18n="footer.credit">Website by Ardency</a></div>
     </div>
   </div>
 </footer>
@@ -2626,15 +2647,212 @@ window.addEventListener('scroll', () => {
   navEl.classList.toggle('scrolled', window.scrollY > 10);
 });
 
-// ── DELIVERY LIVE STATUS ──
-(function () {
+// ── i18n (EN / ES) ──
+const i18n = {
+  en: {
+    'nav.menu': 'Menu',
+    'nav.about': 'About',
+    'nav.visit': 'Visit',
+    'nav.order': 'Order Now',
+    'nav.lang_label': 'Switch to Spanish',
+    'hero.tag': 'Dominican Street Food',
+    'hero.desc': "Real Dominican street food at 611 Bay St, Staten Island. Chimis, mofongo, yaroa, empanadas — hand-made daily, the way they're supposed to taste.",
+    'hero.cta_pickup': 'Order Pickup →',
+    'hero.cta_menu': 'See the Menu',
+    'hero.location': 'Location',
+    'hero.rating': 'Rating',
+    'hero.hours': 'Hours',
+    'hero.hours_value': '10AM – Late',
+    'feat.tag': 'Most Loved',
+    'feat.heading': 'Fan Favorites',
+    'feat.sub': 'The dishes our regulars come back for.',
+    'menu.heading': "What We're Serving",
+    'menu.sub': 'Fresh Dominican street food — 40+ items, made to order.',
+    'menu.search': 'Search menu — chimi, mofongo, yaroa…',
+    'menu.filter_all': 'All Items',
+    'menu.filter_popular': '🔥 Popular',
+    'menu.filter_top': '⭐ Top Rated',
+    'menu.filter_big': '📦 Big Platters',
+    'menu.cta_order': 'Order Online →',
+    'delivery.tag': 'Order Delivery',
+    'delivery.heading': 'Get It Delivered Your Way',
+    'delivery.sub': 'Available on all major platforms. Pick your favorite and order in minutes.',
+    'delivery.status_open': 'Open Now',
+    'delivery.status_closed': 'Closed',
+    'delivery.eta': '~25 min delivery',
+    'delivery.opens_at': 'Opens 10 AM',
+    'delivery.badge_popular': 'Most Popular',
+    'delivery.badge_pickup': 'Skip the Fees',
+    'delivery.pickup_name': 'Pickup',
+    'delivery.pickup_sub': 'Order ahead · ready in ~10 min',
+    'delivery.fee_249': 'Delivery fee $2.49',
+    'delivery.no_fee': 'No delivery fee',
+    'delivery.fee_050': 'Fees from $0.50',
+    'reviews.tag': 'What People Are Saying',
+    'reviews.heading': 'Real Reviews, Real Hungry People.',
+    'reviews.count': '200+ reviews',
+    'reviews.cta': 'Read all reviews on Google',
+    'gallery.tag': 'Fresh from the Kitchen',
+    'gallery.heading': 'Real Food, Real Hungry People.',
+    'gallery.sub': 'Made by hand, every day. Follow along on Instagram for daily specials and behind-the-scenes.',
+    'gallery.cta': 'See more on Instagram →',
+    'story.tag': 'Our Story',
+    'story.heading': 'Dominican <span>Roots</span>,<br>New York Hustle.',
+    'story.body1': 'Antojitos RD brings the vibrant energy of Dominican street food to the heart of Staten Island. Every dish is a tribute to the cravings — <em>"antojitos"</em> — that define Dominican culture.',
+    'story.body2': "From crispy chimis to loaded yaroas, we cook with the same fire and flavor you'd find on any corner in Santo Domingo. Family recipes, fresh ingredients, no shortcuts — that's the Antojitos way.",
+    'story.quote': 'From our kitchen to your table — every plate carries a piece of home.',
+    'story.cite': '— The Antojitos Family',
+    'story.stat1': 'Star Rating',
+    'story.stat2': 'Happy Reviews',
+    'story.stat3': 'Days Open',
+    'catering.celebration': 'For Every Celebration',
+    'catering.tag': 'Catering & Big Orders',
+    'catering.heading': 'Cater Your Next Event',
+    'catering.sub': 'Quinceañeras, baptisms, office lunches, family reunions, backyard parties — we cook for every kind of celebration. Real Dominican food, made by hand, plenty for everyone.',
+    'catering.point1': 'Group trays priced for crowds of 10–100+',
+    'catering.point2': 'Custom menus for dietary needs & favorites',
+    'catering.point3': '48-hour notice preferred for big events',
+    'catering.cta_call': 'Call to Plan',
+    'catering.cta_dm': 'DM on Instagram →',
+    'visit.tag': 'Find Us',
+    'visit.heading': 'Come Through.',
+    'visit.address': 'Address',
+    'visit.call': 'Call Us',
+    'visit.hours': 'Hours',
+    'visit.hours1': 'Sun–Thu: 10AM – 10PM',
+    'visit.hours2': 'Fri–Sat: 10AM – 12AM',
+    'visit.pickup_name': 'Order Pickup',
+    'visit.pickup_sub': 'Skip the wait',
+    'cta.heading': 'Hungry Yet?',
+    'cta.sub': 'Skip the line. Order online for pickup or delivery.',
+    'cta.button': 'Order Now →',
+    'mobile.order': 'Order Now →',
+    'footer.tagline': '<em>La Mejor Fritura Dominicana.</em> Hand-made daily on Bay Street, Staten Island.',
+    'footer.visit': 'Visit',
+    'footer.explore': 'Explore',
+    'footer.story': 'Our Story',
+    'footer.copy': '© 2026 Antojitos RD. All rights reserved.',
+    'footer.credit': 'Website by Ardency'
+  },
+  es: {
+    'nav.menu': 'Menú',
+    'nav.about': 'Nosotros',
+    'nav.visit': 'Visítanos',
+    'nav.order': 'Ordenar',
+    'nav.lang_label': 'Cambiar al inglés',
+    'hero.tag': 'Comida Callejera Dominicana',
+    'hero.desc': 'Auténtica comida callejera dominicana en 611 Bay St, Staten Island. Chimis, mofongo, yaroa, empanadas — hechos a mano cada día, como deben saber.',
+    'hero.cta_pickup': 'Ordenar para Recoger →',
+    'hero.cta_menu': 'Ver el Menú',
+    'hero.location': 'Ubicación',
+    'hero.rating': 'Calificación',
+    'hero.hours': 'Horario',
+    'hero.hours_value': '10AM – Tarde',
+    'feat.tag': 'Más Pedidos',
+    'feat.heading': 'Los Favoritos',
+    'feat.sub': 'Los platos por los que vuelven nuestros clientes.',
+    'menu.heading': 'Lo Que Servimos',
+    'menu.sub': 'Comida callejera dominicana fresca — más de 40 platos, hechos al momento.',
+    'menu.search': 'Buscar — chimi, mofongo, yaroa…',
+    'menu.filter_all': 'Todo',
+    'menu.filter_popular': '🔥 Popular',
+    'menu.filter_top': '⭐ Mejor Calificado',
+    'menu.filter_big': '📦 Platos Grandes',
+    'menu.cta_order': 'Ordenar en Línea →',
+    'delivery.tag': 'Pide Delivery',
+    'delivery.heading': 'Recíbelo a Tu Manera',
+    'delivery.sub': 'Disponible en todas las plataformas. Elige tu favorita y ordena en minutos.',
+    'delivery.status_open': 'Abierto Ahora',
+    'delivery.status_closed': 'Cerrado',
+    'delivery.eta': '~25 min de entrega',
+    'delivery.opens_at': 'Abre a las 10 AM',
+    'delivery.badge_popular': 'Más Popular',
+    'delivery.badge_pickup': 'Sin Cargos',
+    'delivery.pickup_name': 'Recoger',
+    'delivery.pickup_sub': 'Ordena con tiempo · listo en ~10 min',
+    'delivery.fee_249': 'Cargo de entrega $2.49',
+    'delivery.no_fee': 'Sin cargo de entrega',
+    'delivery.fee_050': 'Cargos desde $0.50',
+    'reviews.tag': 'Lo Que Dicen',
+    'reviews.heading': 'Reseñas Reales, Gente con Hambre.',
+    'reviews.count': '200+ reseñas',
+    'reviews.cta': 'Lee todas las reseñas en Google',
+    'gallery.tag': 'Recién Hecho',
+    'gallery.heading': 'Comida Real, Gente con Hambre.',
+    'gallery.sub': 'Hecho a mano, cada día. Síguenos en Instagram para especiales y detrás de cámaras.',
+    'gallery.cta': 'Ver más en Instagram →',
+    'story.tag': 'Nuestra Historia',
+    'story.heading': 'Raíces <span>Dominicanas</span>,<br>Hustle Neoyorkino.',
+    'story.body1': 'Antojitos RD trae la energía vibrante de la comida callejera dominicana al corazón de Staten Island. Cada plato es un tributo a los <em>"antojitos"</em> que definen la cultura dominicana.',
+    'story.body2': 'Desde chimis crujientes hasta yaroas cargadas, cocinamos con el mismo fuego y sabor que encontrarías en cualquier esquina de Santo Domingo. Recetas de familia, ingredientes frescos, sin atajos — así es el estilo Antojitos.',
+    'story.quote': 'De nuestra cocina a tu mesa — cada plato lleva un pedacito de casa.',
+    'story.cite': '— La Familia Antojitos',
+    'story.stat1': 'Calificación',
+    'story.stat2': 'Reseñas Felices',
+    'story.stat3': 'Días Abierto',
+    'catering.celebration': 'Para Toda Celebración',
+    'catering.tag': 'Catering & Pedidos Grandes',
+    'catering.heading': 'Servimos Tu Próximo Evento',
+    'catering.sub': 'Quinceañeras, bautizos, almuerzos de oficina, reuniones familiares, fiestas en el patio — cocinamos para toda celebración. Auténtica comida dominicana, hecha a mano, hay para todos.',
+    'catering.point1': 'Bandejas grupales con precios para 10–100+ personas',
+    'catering.point2': 'Menús a la medida para preferencias y necesidades',
+    'catering.point3': 'Reserva con 48 horas de anticipación para eventos grandes',
+    'catering.cta_call': 'Llamar para Planear',
+    'catering.cta_dm': 'DM en Instagram →',
+    'visit.tag': 'Encuéntranos',
+    'visit.heading': 'Pásate.',
+    'visit.address': 'Dirección',
+    'visit.call': 'Llámanos',
+    'visit.hours': 'Horario',
+    'visit.hours1': 'Dom–Jue: 10AM – 10PM',
+    'visit.hours2': 'Vie–Sáb: 10AM – 12AM',
+    'visit.pickup_name': 'Ordenar para Recoger',
+    'visit.pickup_sub': 'Sin esperas',
+    'cta.heading': '¿Tienes Hambre?',
+    'cta.sub': 'Salta la fila. Ordena en línea para recoger o delivery.',
+    'cta.button': 'Ordenar Ahora →',
+    'mobile.order': 'Ordenar Ahora →',
+    'footer.tagline': '<em>La Mejor Fritura Dominicana.</em> Hecho a mano cada día en Bay Street, Staten Island.',
+    'footer.visit': 'Visítanos',
+    'footer.explore': 'Explora',
+    'footer.story': 'Nuestra Historia',
+    'footer.copy': '© 2026 Antojitos RD. Todos los derechos reservados.',
+    'footer.credit': 'Sitio web por Ardency'
+  }
+};
+
+function applyI18n(lang) {
+  const dict = i18n[lang] || i18n.en;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const v = dict[el.dataset.i18n];
+    if (v != null) el.textContent = v;
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const v = dict[el.dataset.i18nHtml];
+    if (v != null) el.innerHTML = v;
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const v = dict[el.dataset.i18nPlaceholder];
+    if (v != null) el.placeholder = v;
+  });
+  document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+    const v = dict[el.dataset.i18nAria];
+    if (v != null) el.setAttribute('aria-label', v);
+  });
+  document.querySelectorAll('.lang-toggle').forEach(b => b.dataset.lang = lang);
+  try { localStorage.setItem('lang', lang); } catch (e) {}
+  updateDeliveryStatus(lang);
+}
+
+function updateDeliveryStatus(lang) {
   const el = document.getElementById('deliveryStatus');
   if (!el) return;
+  const dict = i18n[lang] || i18n.en;
   const now = new Date();
-  const day = now.getDay(); // 0=Sun, 6=Sat
+  const day = now.getDay();
   const time = now.getHours() + now.getMinutes() / 60;
   const isFriSat = day === 5 || day === 6;
-  // Sun-Thu: 10am-10pm, Fri-Sat: 10am-12am (treat 0 as 24)
   const open = 10;
   const close = isFriSat ? 24 : 22;
   const isOpen = time >= open && time < close;
@@ -2642,13 +2860,25 @@ window.addEventListener('scroll', () => {
   const eta = el.querySelector('.status-eta');
   if (isOpen) {
     el.dataset.open = 'true';
-    txt.textContent = 'Open Now';
-    eta.textContent = '~25 min delivery';
+    txt.textContent = dict['delivery.status_open'];
+    eta.textContent = dict['delivery.eta'];
   } else {
     el.dataset.open = 'false';
-    txt.textContent = 'Closed';
-    eta.textContent = 'Opens 10 AM';
+    txt.textContent = dict['delivery.status_closed'];
+    eta.textContent = dict['delivery.opens_at'];
   }
+}
+
+(function initI18n() {
+  let saved = 'en';
+  try { saved = localStorage.getItem('lang') || 'en'; } catch (e) {}
+  applyI18n(saved);
+  document.querySelectorAll('.lang-toggle').forEach(b => {
+    b.addEventListener('click', () => {
+      const next = (document.documentElement.lang === 'es') ? 'en' : 'es';
+      applyI18n(next);
+    });
+  });
 })();
 
 // ── SCROLL REVEAL ──
