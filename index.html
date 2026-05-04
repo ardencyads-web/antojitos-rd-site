@@ -80,7 +80,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="assets/hero.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="assets/hero.jpg" imagesrcset="assets/hero-mobile.jpg 600w, assets/hero.jpg 1200w" imagesizes="(max-width:1000px) 100vw, 50vw" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -365,6 +365,113 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.05)}
 .hero-badge-float .bf-label{font-size:.72rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
 @keyframes floatBadge{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
+/* ── FEATURED / FAN FAVORITES ── */
+.featured{padding:48px 0 40px;background:var(--bg)}
+.featured-inner{max-width:1240px;margin:0 auto;padding:0 28px}
+.featured-top{text-align:center;margin-bottom:36px}
+.featured-tag{font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.featured-top h2{font-family:'Archivo Black',sans-serif;font-size:clamp(1.8rem,3.2vw,2.4rem);color:var(--dark);line-height:1.1;margin-bottom:6px}
+.featured-top p{color:var(--muted);font-size:.95rem}
+.featured-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.feat-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:18px;
+  overflow:hidden;text-decoration:none;color:var(--dark);
+  display:flex;flex-direction:column;
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.feat-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.06)}
+.feat-photo{
+  position:relative;
+  aspect-ratio:1/1;
+  display:flex;align-items:center;justify-content:center;
+  font-size:4.2rem;
+  overflow:hidden;
+}
+.feat-photo::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.15));
+  pointer-events:none;
+}
+.feat-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.feat-card.f1 .feat-photo{background:linear-gradient(135deg,#FFE0B2,#F4A261)}
+.feat-card.f2 .feat-photo{background:linear-gradient(135deg,#FFCDD2,#D42B2B)}
+.feat-card.f3 .feat-photo{background:linear-gradient(135deg,#FFF3B0,#E8A838)}
+.feat-card.f4 .feat-photo{background:linear-gradient(135deg,#C8E6C9,#5D9C3A)}
+.feat-badge{
+  position:absolute;top:12px;left:12px;z-index:2;
+  background:rgba(0,0,0,.78);color:#fff;
+  font-size:.62rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
+  padding:5px 10px;border-radius:100px;
+  backdrop-filter:blur(8px);
+}
+.feat-body{padding:16px 18px;display:flex;flex-direction:column;gap:4px}
+.feat-name{font-family:'Archivo Black',sans-serif;font-size:1.05rem;color:var(--dark);line-height:1.2}
+.feat-desc{font-size:.78rem;color:var(--muted);line-height:1.5;flex:1}
+.feat-foot{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+.feat-price{font-family:'Archivo Black',sans-serif;font-size:1.1rem;color:var(--red)}
+.feat-arrow{font-size:.85rem;color:rgba(0,0,0,.25);transition:all .25s}
+.feat-card:hover .feat-arrow{color:var(--red);transform:translateX(3px)}
+@media(max-width:900px){.featured-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){
+  .featured{padding:48px 0 20px}
+  .featured-inner{padding:0 16px}
+  .featured-grid{gap:10px}
+  .feat-photo{font-size:3.2rem}
+  .feat-name{font-size:.95rem}
+  .feat-desc{font-size:.74rem}
+  .feat-price{font-size:1rem}
+  .feat-body{padding:12px 14px}
+}
+
+/* ── TODAY'S SPECIAL BANNER ── */
+.special-banner{
+  max-width:960px;margin:0 auto;padding:48px 28px 0;
+}
+.special-card{
+  display:flex;align-items:center;gap:20px;
+  background:linear-gradient(135deg,#1a1a1a,#0c0c0c);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  padding:18px 22px;
+  position:relative;overflow:hidden;isolation:isolate;
+  text-decoration:none;color:#fff;
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.special-card:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(212,43,43,.18)}
+.special-card::before{
+  content:'';position:absolute;inset:-1px;
+  background:linear-gradient(135deg,var(--red),var(--gold),var(--red));
+  background-size:300% 300%;
+  border-radius:19px;z-index:-1;opacity:.5;
+  animation:specialBorder 6s linear infinite;
+}
+@keyframes specialBorder{0%{background-position:0% 50%}100%{background-position:300% 50%}}
+.special-card::after{content:'';position:absolute;inset:1px;background:linear-gradient(135deg,#1a1a1a,#0c0c0c);border-radius:17px;z-index:-1}
+.special-icon{
+  flex-shrink:0;width:54px;height:54px;border-radius:14px;
+  background:linear-gradient(135deg,var(--red),#E85D5D);
+  display:flex;align-items:center;justify-content:center;font-size:1.6rem;
+}
+.special-text{flex:1;min-width:0}
+.special-label{font-size:.62rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
+.special-name{font-family:'Archivo Black',sans-serif;font-size:1.1rem;line-height:1.2}
+.special-sub{font-size:.78rem;color:rgba(255,255,255,.55);margin-top:2px}
+.special-cta{
+  flex-shrink:0;
+  background:#fff;color:var(--dark);
+  padding:10px 20px;border-radius:100px;
+  font-weight:700;font-size:.82rem;
+  white-space:nowrap;
+}
+@media(max-width:700px){
+  .special-banner{padding:32px 16px 0}
+  .special-card{padding:14px;gap:12px;flex-wrap:wrap}
+  .special-icon{width:46px;height:46px;font-size:1.3rem}
+  .special-name{font-size:.98rem}
+  .special-sub{font-size:.72rem}
+  .special-cta{width:100%;text-align:center;padding:11px 16px;font-size:.85rem;justify-content:center}
+}
+
 /* ── MENU SECTION — COMPACT TABBED ── */
 .menu-section{padding:80px 0 100px;background:var(--surface)}
 .menu-wrap{max-width:1000px;margin:0 auto;padding:0 28px}
@@ -372,6 +479,32 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.05)}
 .menu-top .mt-tag{font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:8px}
 .menu-top h2{font-family:'Archivo Black',sans-serif;font-size:clamp(2rem,4vw,2.8rem);color:var(--dark);line-height:1.1;margin-bottom:6px}
 .menu-top .mt-sub{color:var(--muted);font-size:.95rem}
+.menu-search-row{display:flex;gap:10px;align-items:center;max-width:520px;margin:0 auto 18px;flex-wrap:wrap;justify-content:center}
+.menu-search{
+  flex:1;min-width:200px;
+  display:flex;align-items:center;gap:8px;
+  background:var(--bg);border:1.5px solid var(--border);
+  border-radius:100px;padding:10px 16px;
+  transition:border-color .2s, box-shadow .2s;
+}
+.menu-search:focus-within{border-color:var(--red);box-shadow:0 0 0 4px rgba(212,43,43,.08)}
+.menu-search svg{width:16px;height:16px;fill:none;stroke:var(--muted);stroke-width:2;flex-shrink:0}
+.menu-search input{
+  flex:1;border:none;outline:none;background:transparent;
+  font-family:'Outfit',sans-serif;font-size:.88rem;color:var(--dark);
+  min-width:0;
+}
+.menu-search input::placeholder{color:var(--muted)}
+.menu-filters{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:18px}
+.menu-filter{
+  background:var(--bg);border:1.5px solid var(--border);
+  border-radius:100px;padding:6px 14px;
+  font-family:'Outfit',sans-serif;font-weight:600;font-size:.74rem;
+  color:var(--muted);cursor:pointer;transition:all .2s;
+}
+.menu-filter:hover{border-color:var(--red);color:var(--red)}
+.menu-filter.active{background:var(--red);color:#fff;border-color:var(--red)}
+.menu-no-results{text-align:center;padding:40px 20px;color:var(--muted);font-size:.9rem}
 .menu-tabs-bar{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:0 0 4px;margin-bottom:36px;justify-content:center;flex-wrap:wrap}
 .menu-tabs-bar::-webkit-scrollbar{display:none}
 .mtab{flex-shrink:0;display:flex;align-items:center;gap:7px;padding:10px 20px;border-radius:100px;border:1.5px solid var(--border);background:var(--bg);font-family:'Outfit',sans-serif;font-weight:600;font-size:.82rem;color:var(--muted);cursor:pointer;transition:all .22s;white-space:nowrap}
@@ -640,6 +773,66 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.05)}
 .del-card.reveal:not(.show):nth-child(5){transition-delay:.25s}
 .del-card.reveal:not(.show):nth-child(6){transition-delay:.3s}
 
+/* ── REVIEWS / TESTIMONIALS ── */
+.reviews{padding:80px 0;background:var(--bg)}
+.reviews-inner{max-width:1100px;margin:0 auto;padding:0 28px}
+.reviews-top{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:36px}
+.reviews-top h2{font-family:'Archivo Black',sans-serif;font-size:clamp(1.8rem,3vw,2.4rem);color:var(--dark);line-height:1.1}
+.reviews-top .rt-tag{font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.reviews-rating{
+  display:flex;align-items:center;gap:10px;
+  background:var(--surface);border:1px solid var(--border);
+  padding:10px 18px;border-radius:100px;
+}
+.reviews-rating .rr-num{font-family:'Archivo Black',sans-serif;font-size:1.2rem;color:var(--dark)}
+.reviews-rating .rr-stars{color:var(--gold);font-size:.95rem;letter-spacing:1px}
+.reviews-rating .rr-count{font-size:.78rem;color:var(--muted);font-weight:600}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.review-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:24px;
+  display:flex;flex-direction:column;
+  transition:transform .3s, box-shadow .3s;
+  position:relative;
+}
+.review-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.05)}
+.review-stars{color:var(--gold);font-size:.9rem;letter-spacing:2px;margin-bottom:12px}
+.review-text{font-size:.92rem;line-height:1.65;color:var(--text);margin-bottom:18px;flex:1}
+.review-author{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--border)}
+.review-avatar{
+  width:38px;height:38px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Archivo Black',sans-serif;font-size:.95rem;color:#fff;
+  flex-shrink:0;
+}
+.review-card:nth-child(1) .review-avatar{background:linear-gradient(135deg,#D42B2B,#E85D5D)}
+.review-card:nth-child(2) .review-avatar{background:linear-gradient(135deg,#E8A838,#F4C26B)}
+.review-card:nth-child(3) .review-avatar{background:linear-gradient(135deg,#1565c0,#42a5f5)}
+.review-card:nth-child(4) .review-avatar{background:linear-gradient(135deg,#2e7d32,#66bb6a)}
+.review-meta{display:flex;flex-direction:column}
+.review-name{font-weight:700;font-size:.88rem;color:var(--dark)}
+.review-date{font-size:.7rem;color:var(--muted)}
+.reviews-cta{text-align:center;margin-top:32px}
+.reviews-cta a{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.85rem;font-weight:600;color:var(--dark);
+  text-decoration:none;border-bottom:2px solid var(--gold);
+  padding-bottom:2px;transition:color .2s;
+}
+.reviews-cta a:hover{color:var(--red)}
+@media(max-width:900px){.reviews-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){
+  .reviews{padding:52px 0}
+  .reviews-inner{padding:0 16px}
+  .reviews-top{margin-bottom:24px}
+  .reviews-top h2{font-size:1.5rem}
+  .reviews-grid{grid-template-columns:1fr;gap:12px}
+  .review-card{padding:18px 18px}
+  .review-text{font-size:.86rem}
+}
+
 /* ── STORY / ABOUT ── */
 .story{
   padding:100px 0;
@@ -699,12 +892,58 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.05)}
 .story-logo{
   text-align:center;
   margin-bottom:28px;
+  position:relative;
 }
+.story-logo::before,
+.story-logo::after{
+  content:'';position:absolute;top:50%;
+  width:80px;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);
+}
+.story-logo::before{left:calc(50% - 180px)}
+.story-logo::after{right:calc(50% - 180px)}
 .story-logo img{
   height:100px;
   width:auto;
   object-fit:contain;
   filter:drop-shadow(0 4px 20px rgba(0,0,0,.3));
+  position:relative;
+  animation:logoFloat 6s ease-in-out infinite;
+}
+@keyframes logoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@media(max-width:700px){
+  .story-logo::before,.story-logo::after{display:none}
+}
+
+/* Quote */
+.story-quote{
+  text-align:center;
+  max-width:680px;
+  margin:0 auto 40px;
+  padding:24px 28px;
+  position:relative;
+}
+.story-quote::before{
+  content:'\201C';
+  position:absolute;top:-10px;left:50%;transform:translateX(-50%);
+  font-family:'Archivo Black',serif;
+  font-size:5rem;line-height:1;
+  color:var(--red);opacity:.25;
+}
+.story-quote p{
+  font-size:1.05rem;line-height:1.6;
+  color:rgba(255,255,255,.85);
+  font-style:italic;font-weight:300;
+}
+.story-quote cite{
+  display:block;margin-top:14px;
+  font-size:.7rem;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--gold);font-style:normal;font-weight:700;
+}
+@media(max-width:700px){
+  .story-quote{padding:18px 16px;margin-bottom:28px}
+  .story-quote p{font-size:.92rem}
+  .story-quote::before{font-size:3.5rem;top:-4px}
 }
 
 /* Heading */
@@ -832,6 +1071,46 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.05)}
   position:relative;z-index:2;
 }
 .btn-white:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.15)}
+
+/* ── MOBILE STICKY CTA ── */
+.mobile-cta-bar{
+  display:none;
+  position:fixed;left:12px;right:12px;bottom:12px;
+  z-index:140;
+  gap:8px;
+  background:rgba(255,250,245,.92);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border:1px solid var(--border);
+  border-radius:100px;
+  padding:8px;
+  box-shadow:0 6px 28px rgba(0,0,0,.12);
+}
+.mobile-cta-order{
+  flex:1;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  background:var(--red);color:#fff;
+  padding:13px 18px;border-radius:100px;
+  font-weight:700;font-size:.92rem;
+  text-decoration:none;
+  transition:background .25s;
+}
+.mobile-cta-order:active{background:var(--red-deep)}
+.mobile-cta-call{
+  display:flex;align-items:center;justify-content:center;
+  width:46px;height:46px;
+  background:var(--dark);color:#fff;
+  border-radius:50%;
+  text-decoration:none;
+  flex-shrink:0;
+  transition:background .25s;
+}
+.mobile-cta-call:active{background:#000}
+.mobile-cta-call svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:700px){
+  .mobile-cta-bar{display:flex}
+  body{padding-bottom:84px}
+}
 
 /* ── FOOTER ── */
 footer{
@@ -1250,7 +1529,12 @@ footer{
     </div>
   </div>
   <div class="hero-right">
-    <img src="assets/hero.jpg" alt="Antojitos RD — fresh empanadas and Dominican street food counter" class="hero-photo" width="1200" height="800" fetchpriority="high" decoding="async">
+    <img src="assets/hero.jpg"
+         srcset="assets/hero-mobile.jpg 600w, assets/hero.jpg 1200w"
+         sizes="(max-width:1000px) 100vw, 50vw"
+         alt="Antojitos RD — fresh empanadas and Dominican street food counter"
+         class="hero-photo" width="1200" height="1600"
+         fetchpriority="high" decoding="async">
     <div class="hero-overlay"></div>
     <div class="hero-badge-float b1">
       <div class="bf-num">4.8★</div>
@@ -1263,6 +1547,65 @@ footer{
   </div>
 </section>
 
+<!-- TODAY'S SPECIAL -->
+<section class="special-banner" aria-label="Today's special">
+  <a href="https://order.online/store/-31897311/?hideModal=true&utm_source=gfo&rwg_token=AFd1xnGzGELZSziXa2oJPRgkWZcxdvsc4mOVr5M_KGBFR9_Gh4G47ZeNIPNXB9y-mQR-x4u9dGRWzT3eD0MYM1sg2s4Z3bhvnQ%3D%3D&pickup=true" target="_blank" class="special-card reveal">
+    <div class="special-icon" aria-hidden="true">🔥</div>
+    <div class="special-text">
+      <div class="special-label">Fan Favorite Combo</div>
+      <div class="special-name">Yaroa + Chimi + Jugo Natural</div>
+      <div class="special-sub">Three Dominican classics, one order. Save when you bundle.</div>
+    </div>
+    <span class="special-cta">Order &rarr;</span>
+  </a>
+</section>
+
+<!-- FEATURED / FAN FAVORITES -->
+<section class="featured" aria-labelledby="featured-heading">
+  <div class="featured-inner">
+    <div class="featured-top reveal">
+      <div class="featured-tag">Most Loved</div>
+      <h2 id="featured-heading">Fan Favorites</h2>
+      <p>The dishes our regulars come back for.</p>
+    </div>
+    <div class="featured-grid">
+      <!-- Replace gradient placeholders with real photos by adding an <img> inside .feat-photo -->
+      <a href="#menu-section" class="feat-card f1 reveal">
+        <div class="feat-photo"><span class="feat-badge">🔥 #1 Best Seller</span><span aria-hidden="true">🥟</span></div>
+        <div class="feat-body">
+          <div class="feat-name">Empanada de Pollo</div>
+          <div class="feat-desc">Crispy pastry, shredded chicken, melted cheese.</div>
+          <div class="feat-foot"><span class="feat-price">$2.50</span><span class="feat-arrow">→</span></div>
+        </div>
+      </a>
+      <a href="#menu-section" class="feat-card f2 reveal">
+        <div class="feat-photo"><span class="feat-badge">⭐ Top Rated</span><span aria-hidden="true">🍔</span></div>
+        <div class="feat-body">
+          <div class="feat-name">Chimi de Res</div>
+          <div class="feat-desc">The Dominican street burger — cabbage, mayo-ketchup.</div>
+          <div class="feat-foot"><span class="feat-price">$11.00</span><span class="feat-arrow">→</span></div>
+        </div>
+      </a>
+      <a href="#menu-section" class="feat-card f3 reveal">
+        <div class="feat-photo"><span class="feat-badge">🔥 Popular</span><span aria-hidden="true">🍌</span></div>
+        <div class="feat-body">
+          <div class="feat-name">Mofongo de Chicharrón</div>
+          <div class="feat-desc">Mashed plantain, garlic, crispy pork.</div>
+          <div class="feat-foot"><span class="feat-price">$17.50</span><span class="feat-arrow">→</span></div>
+        </div>
+      </a>
+      <a href="#menu-section" class="feat-card f4 reveal">
+        <div class="feat-photo"><span class="feat-badge">⭐ Top Rated</span><span aria-hidden="true">🍟</span></div>
+        <div class="feat-body">
+          <div class="feat-name">Yaroa Large</div>
+          <div class="feat-desc">Fries, cheese, meat, signature sauces. Go big.</div>
+          <div class="feat-foot"><span class="feat-price">$14.00</span><span class="feat-arrow">→</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- MENU SECTION -->
 <section class="menu-section" id="menu-section">
   <div class="menu-wrap">
@@ -1271,6 +1614,20 @@ footer{
       <div class="mt-tag">Nuestro Menú</div>
       <h2>What We're Serving</h2>
       <div class="mt-sub">Fresh Dominican street food — 40+ items, made to order.</div>
+    </div>
+
+    <!-- Search + Filter -->
+    <div class="menu-search-row reveal">
+      <label class="menu-search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke-linecap="round" stroke-linejoin="round"/><line x1="20" y1="20" x2="16.5" y2="16.5" stroke-linecap="round"/></svg>
+        <input type="search" id="menuSearch" placeholder="Search menu — chimi, mofongo, yaroa…" aria-label="Search menu items">
+      </label>
+    </div>
+    <div class="menu-filters reveal" role="group" aria-label="Menu filters">
+      <button class="menu-filter active" data-filter="all">All Items</button>
+      <button class="menu-filter" data-filter="popular">🔥 Popular</button>
+      <button class="menu-filter" data-filter="top">⭐ Top Rated</button>
+      <button class="menu-filter" data-filter="big">📦 Big Platters</button>
     </div>
 
     <!-- Category Tabs -->
@@ -1360,6 +1717,62 @@ footer{
   </div>
 </section>
 
+<!-- REVIEWS / TESTIMONIALS -->
+<!-- Replace these with real reviews pulled from Google / Yelp -->
+<section class="reviews" aria-labelledby="reviews-heading">
+  <div class="reviews-inner">
+    <div class="reviews-top reveal">
+      <div>
+        <div class="rt-tag">What People Are Saying</div>
+        <h2 id="reviews-heading">Real Reviews,<br>Real Hungry People.</h2>
+      </div>
+      <div class="reviews-rating" aria-label="4.8 out of 5 stars from 500+ reviews">
+        <span class="rr-num">4.8</span>
+        <span class="rr-stars" aria-hidden="true">★★★★★</span>
+        <span class="rr-count">500+ reviews</span>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <article class="review-card reveal">
+        <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="review-text">"The chimi is unreal. Tastes exactly like what my grandma used to make in DR. Found my new spot in Staten Island."</p>
+        <div class="review-author">
+          <div class="review-avatar" aria-hidden="true">JM</div>
+          <div class="review-meta">
+            <span class="review-name">Jasmine M.</span>
+            <span class="review-date">Local Guide · 3 weeks ago</span>
+          </div>
+        </div>
+      </article>
+      <article class="review-card reveal">
+        <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="review-text">"Best mofongo on the whole island. Period. The chicharrón is crispy, the plantain is perfect. Worth the drive."</p>
+        <div class="review-author">
+          <div class="review-avatar" aria-hidden="true">CR</div>
+          <div class="review-meta">
+            <span class="review-name">Carlos R.</span>
+            <span class="review-date">Reviewed 1 month ago</span>
+          </div>
+        </div>
+      </article>
+      <article class="review-card reveal">
+        <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="review-text">"Yaroa large fed me and my partner with leftovers. Fresh, hot, loaded. The sauces are everything. Will be back."</p>
+        <div class="review-author">
+          <div class="review-avatar" aria-hidden="true">AP</div>
+          <div class="review-meta">
+            <span class="review-name">Alana P.</span>
+            <span class="review-date">Reviewed 2 weeks ago</span>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="reviews-cta">
+      <a href="https://www.google.com/search?q=Antojitos+RD+Staten+Island" target="_blank" rel="noopener">Read all reviews on Google →</a>
+    </div>
+  </div>
+</section>
+
 <!-- STORY / ABOUT -->
 <section class="story" id="story" aria-labelledby="story-heading">
   <div class="story-glow"></div>
@@ -1379,6 +1792,11 @@ footer{
         <p class="reveal">Antojitos RD brings the vibrant energy of Dominican street food to the heart of Staten Island. Every dish is a tribute to the cravings — <em>"antojitos"</em> — that define Dominican culture.</p>
         <p class="reveal">From crispy chimis to loaded yaroas, we cook with the same fire and flavor you'd find on any corner in Santo Domingo. Family recipes, fresh ingredients, no shortcuts — that's the Antojitos way.</p>
       </div>
+
+      <blockquote class="story-quote reveal">
+        <p>From our kitchen to your table — every plate carries a piece of home.</p>
+        <cite>— The Antojitos Family</cite>
+      </blockquote>
 
       <div class="story-stats-strip reveal">
         <div class="ss-item">
@@ -1480,6 +1898,14 @@ footer{
 
 </main>
 
+<!-- MOBILE STICKY CTA -->
+<div class="mobile-cta-bar" role="region" aria-label="Quick order actions">
+  <a href="https://order.online/store/-31897311/?hideModal=true&utm_source=gfo&rwg_token=AFd1xnGzGELZSziXa2oJPRgkWZcxdvsc4mOVr5M_KGBFR9_Gh4G47ZeNIPNXB9y-mQR-x4u9dGRWzT3eD0MYM1sg2s4Z3bhvnQ%3D%3D&pickup=true" target="_blank" class="mobile-cta-order">Order Now &rarr;</a>
+  <a href="tel:9294930916" class="mobile-cta-call" aria-label="Call (929) 493-0916">
+    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  </a>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="container">
@@ -1574,7 +2000,10 @@ const categories = [
 const tagLabels = {popular:'🔥 Popular',top:'⭐ Top Rated',big:'📦 Big Platter'};
 const menuTabs = document.getElementById('menuTabs');
 const menuPanel = document.getElementById('menuPanel');
+const searchInput = document.getElementById('menuSearch');
 let activeCat = 'empanadas';
+let activeFilter = 'all';
+let searchTerm = '';
 
 // Render tabs
 menuTabs.innerHTML = categories.map(c =>
@@ -1583,47 +2012,114 @@ menuTabs.innerHTML = categories.map(c =>
   </button>`
 ).join('');
 
-// Render panel for a category
-function showCategory(id) {
-  activeCat = id;
-  const cat = categories.find(c => c.id === id);
+function renderItem(item){
+  return `
+    <div class="ml-item">
+      <div class="ml-row">
+        <span class="ml-name">${item.n}</span>
+        <span class="ml-dots"></span>
+        <span class="ml-price">${item.p}</span>
+      </div>
+      <div class="ml-desc">${item.d}</div>
+      ${item.t.length ? `<div class="ml-tags">${item.t.map(t =>
+        `<span class="ml-tag ${t}">${tagLabels[t]}</span>`
+      ).join('')}</div>` : ''}
+    </div>`;
+}
+
+function renderMenu() {
+  // Search overrides category — show matches across ALL categories
+  if (searchTerm.trim()) {
+    const q = searchTerm.toLowerCase().trim();
+    const matches = [];
+    categories.forEach(c => {
+      c.items.forEach(item => {
+        if (activeFilter !== 'all' && !item.t.includes(activeFilter)) return;
+        if (item.n.toLowerCase().includes(q) || item.d.toLowerCase().includes(q)) {
+          matches.push({...item, _cat: c.name, _icon: c.icon});
+        }
+      });
+    });
+    menuTabs.style.display = 'none';
+    if (matches.length === 0) {
+      menuPanel.innerHTML = `<div class="menu-no-results">No items match "${searchTerm}". Try a different word.</div>`;
+      return;
+    }
+    menuPanel.innerHTML = `
+      <div class="menu-panel">
+        <div class="cat-header">
+          <div class="ch-icon" aria-hidden="true">🔎</div>
+          <h3>Search results</h3>
+          <span class="ch-count">${matches.length} item${matches.length>1?'s':''}</span>
+        </div>
+        <div class="menu-list">${matches.map(renderItem).join('')}</div>
+      </div>`;
+    return;
+  }
+
+  // Normal category view (with optional tag filter)
+  menuTabs.style.display = '';
+  const cat = categories.find(c => c.id === activeCat);
+  const filtered = activeFilter === 'all'
+    ? cat.items
+    : cat.items.filter(item => item.t.includes(activeFilter));
+
   document.querySelectorAll('.mtab').forEach(t => {
-    const isActive = t.dataset.id === id;
+    const isActive = t.dataset.id === activeCat;
     t.classList.toggle('active', isActive);
     t.setAttribute('aria-selected', isActive);
   });
+
+  if (filtered.length === 0) {
+    menuPanel.innerHTML = `
+      <div class="menu-panel">
+        <div class="cat-header">
+          <div class="ch-icon">${cat.icon}</div>
+          <h3>${cat.name}</h3>
+        </div>
+        <div class="menu-no-results">No ${activeFilter} items in this category. <button class="menu-filter" onclick="setFilter('all')" style="margin-left:8px">Clear filter</button></div>
+      </div>`;
+    return;
+  }
 
   menuPanel.innerHTML = `
     <div class="menu-panel">
       <div class="cat-header">
         <div class="ch-icon">${cat.icon}</div>
         <h3>${cat.name}</h3>
-        <span class="ch-count">${cat.items.length} item${cat.items.length>1?'s':''}</span>
+        <span class="ch-count">${filtered.length} item${filtered.length>1?'s':''}</span>
       </div>
-      <div class="menu-list">
-        ${cat.items.map(item => `
-          <div class="ml-item">
-            <div class="ml-row">
-              <span class="ml-name">${item.n}</span>
-              <span class="ml-dots"></span>
-              <span class="ml-price">${item.p}</span>
-            </div>
-            <div class="ml-desc">${item.d}</div>
-            ${item.t.length ? `<div class="ml-tags">${item.t.map(t =>
-              `<span class="ml-tag ${t}">${tagLabels[t]}</span>`
-            ).join('')}</div>` : ''}
-          </div>
-        `).join('')}
-      </div>
-    </div>
-  `;
+      <div class="menu-list">${filtered.map(renderItem).join('')}</div>
+    </div>`;
 }
 
-showCategory(activeCat);
+function setFilter(f) {
+  activeFilter = f;
+  document.querySelectorAll('.menu-filter').forEach(b => {
+    b.classList.toggle('active', b.dataset.filter === f);
+  });
+  renderMenu();
+}
+window.setFilter = setFilter;
+
+renderMenu();
 
 menuTabs.addEventListener('click', (e) => {
   const tab = e.target.closest('.mtab');
-  if (tab) showCategory(tab.dataset.id);
+  if (tab) { activeCat = tab.dataset.id; renderMenu(); }
+});
+
+document.querySelectorAll('.menu-filter').forEach(btn => {
+  btn.addEventListener('click', () => setFilter(btn.dataset.filter));
+});
+
+let searchTimer;
+searchInput.addEventListener('input', (e) => {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => {
+    searchTerm = e.target.value;
+    renderMenu();
+  }, 120);
 });
 
 // ── MOBILE NAV ──
@@ -1705,6 +2201,26 @@ const counterObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.story-stats-strip').forEach(el => counterObserver.observe(el));
 </script>
+
+<!--
+  ANALYTICS — Choose ONE option and uncomment.
+  ─────────────────────────────────────────────
+  OPTION A: Vercel Analytics (free, zero-config)
+  Just enable it in your Vercel dashboard → Analytics tab.
+  No code change needed.
+
+  OPTION B: Google Analytics 4
+  Replace G-XXXXXXXXXX with your GA4 Measurement ID.
+-->
+<!--
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+-->
 
 </body>
 </html>
