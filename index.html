@@ -211,16 +211,6 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);over
 .container{max-width:1240px;margin:0 auto;padding:0 28px}
 
 /* DR flag tricolor accent — subtle nod to heritage */
-.flag-accent{
-  height:3px;
-  background:linear-gradient(to right,
-    var(--red) 0%, var(--red) 33.33%,
-    #FFFFFF 33.33%, #FFFFFF 66.66%,
-    var(--blue) 66.66%, var(--blue) 100%);
-  position:relative;
-  z-index:201;
-}
-
 /* ── MARQUEE TICKER ── */
 .ticker{
   background:var(--red);
@@ -1458,14 +1448,6 @@ footer{
   padding:64px 0 28px;
   position:relative;
 }
-footer::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:linear-gradient(to right,
-    var(--red) 0%, var(--red) 33.33%,
-    rgba(255,255,255,.92) 33.33%, rgba(255,255,255,.92) 66.66%,
-    var(--blue) 66.66%, var(--blue) 100%);
-  opacity:.55;
-}
 .footer-inner{
   display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;
   align-items:flex-start;
@@ -1840,9 +1822,6 @@ footer::before{
 <body>
 
 <a href="#menu-section" class="skip-link">Skip to menu</a>
-
-<!-- DR FLAG ACCENT -->
-<div class="flag-accent" aria-hidden="true"></div>
 
 <!-- TICKER -->
 <div class="ticker">
