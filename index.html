@@ -112,13 +112,13 @@
   --border:rgba(0,0,0,0.06);
   --border-strong:rgba(0,0,0,0.12);
 
-  /* Shadow system (consistent scale) */
-  --shadow-xs:0 1px 2px rgba(20,12,4,.04);
-  --shadow-sm:0 2px 8px rgba(20,12,4,.05);
-  --shadow-md:0 6px 20px rgba(20,12,4,.06);
-  --shadow-lg:0 14px 36px rgba(20,12,4,.08);
-  --shadow-xl:0 24px 56px rgba(20,12,4,.10);
-  --shadow-red:0 12px 32px rgba(212,43,43,.18);
+  /* Shadow system — multi-layer for soft, premium depth */
+  --shadow-xs:0 1px 2px rgba(20,12,4,.05);
+  --shadow-sm:0 1px 2px rgba(20,12,4,.04),0 2px 6px rgba(20,12,4,.05);
+  --shadow-md:0 1px 3px rgba(20,12,4,.05),0 4px 12px rgba(20,12,4,.06),0 8px 20px rgba(20,12,4,.04);
+  --shadow-lg:0 1px 2px rgba(20,12,4,.04),0 6px 18px rgba(20,12,4,.06),0 18px 40px rgba(20,12,4,.06);
+  --shadow-xl:0 2px 4px rgba(20,12,4,.05),0 10px 28px rgba(20,12,4,.07),0 28px 60px rgba(20,12,4,.08);
+  --shadow-red:0 2px 4px rgba(212,43,43,.18),0 8px 20px rgba(212,43,43,.16),0 18px 40px rgba(212,43,43,.10);
 
   /* Radius scale */
   --radius:16px;
@@ -378,7 +378,11 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.05)}
   margin-bottom:14px;
 }
 .hero h1 .accent{
-  color:var(--red);
+  background:linear-gradient(135deg,var(--red) 20%,var(--gold) 95%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:transparent;
   position:relative;
   display:inline-block;
 }
@@ -386,7 +390,7 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.05)}
   content:'';position:absolute;
   bottom:4px;left:0;right:0;
   height:8px;background:var(--gold);
-  opacity:.35;border-radius:4px;
+  opacity:.32;border-radius:4px;
   z-index:-1;
 }
 .hero-desc{
@@ -711,8 +715,13 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.05)}
   content:'';width:24px;height:2px;background:var(--red);border-radius:2px;opacity:.5;
 }
 .visit-header h2{font-family:'Archivo Black',sans-serif;font-size:clamp(2rem,3.4vw,2.6rem);color:var(--dark);line-height:1.05;letter-spacing:-0.02em}
-.visit-map{width:100%;aspect-ratio:2.4/1;border-radius:20px;overflow:hidden;border:1px solid var(--border);box-shadow:0 8px 40px rgba(0,0,0,.04);margin-bottom:32px}
-.visit-map iframe{width:100%;height:100%;border:0}
+.visit-map{width:100%;aspect-ratio:2.4/1;border-radius:20px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-md);margin-bottom:32px}
+.visit-map iframe{
+  width:100%;height:100%;border:0;
+  filter:saturate(.78) sepia(.18) hue-rotate(-8deg) brightness(1.02) contrast(.96);
+  transition:filter .4s ease;
+}
+.visit-map:hover iframe{filter:saturate(1) sepia(0) hue-rotate(0) brightness(1) contrast(1)}
 .visit-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:16px}
 .vs-item{padding:24px 20px;display:flex;align-items:center;gap:14px;position:relative;transition:background .25s;text-decoration:none;color:var(--dark)}
 .vs-item:hover{background:rgba(0,0,0,.015)}
@@ -1224,7 +1233,7 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.05)}
   margin-bottom:0;
 }
 .story-headline h2 span{
-  background:linear-gradient(135deg,var(--red),#E85D5D);
+  background:linear-gradient(135deg,var(--red) 25%,var(--gold));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-clip:text;
@@ -2883,18 +2892,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger').forEach(el => revealObserver.observe(el));
 
-// ── PARALLAX on hero badges (skip on touch / no-hover devices) ──
-if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-  document.addEventListener('mousemove', (e) => {
-    const badges = document.querySelectorAll('.hero-badge-float');
-    const x = (e.clientX / window.innerWidth - 0.5) * 20;
-    const y = (e.clientY / window.innerHeight - 0.5) * 20;
-    badges.forEach((b, i) => {
-      const factor = i === 0 ? 1 : -1;
-      b.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
-    });
-  });
-}
+// (Hero badges use a CSS bob animation — no JS parallax to override it.)
 
 // ── COUNT-UP animation for stat numbers ──
 function animateCounter(el) {
