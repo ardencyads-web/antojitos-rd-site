@@ -423,55 +423,6 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.05)}
   .feat-body{padding:12px 14px}
 }
 
-/* ── TODAY'S SPECIAL BANNER ── */
-.special-banner{
-  max-width:960px;margin:0 auto;padding:48px 28px 0;
-}
-.special-card{
-  display:flex;align-items:center;gap:20px;
-  background:linear-gradient(135deg,#1a1a1a,#0c0c0c);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:18px;
-  padding:18px 22px;
-  position:relative;overflow:hidden;isolation:isolate;
-  text-decoration:none;color:#fff;
-  transition:transform .3s ease, box-shadow .3s ease;
-}
-.special-card:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(212,43,43,.18)}
-.special-card::before{
-  content:'';position:absolute;inset:-1px;
-  background:linear-gradient(135deg,var(--red),var(--gold),var(--red));
-  background-size:300% 300%;
-  border-radius:19px;z-index:-1;opacity:.5;
-  animation:specialBorder 6s linear infinite;
-}
-@keyframes specialBorder{0%{background-position:0% 50%}100%{background-position:300% 50%}}
-.special-card::after{content:'';position:absolute;inset:1px;background:linear-gradient(135deg,#1a1a1a,#0c0c0c);border-radius:17px;z-index:-1}
-.special-icon{
-  flex-shrink:0;width:54px;height:54px;border-radius:14px;
-  background:linear-gradient(135deg,var(--red),#E85D5D);
-  display:flex;align-items:center;justify-content:center;font-size:1.6rem;
-}
-.special-text{flex:1;min-width:0}
-.special-label{font-size:.62rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
-.special-name{font-family:'Archivo Black',sans-serif;font-size:1.1rem;line-height:1.2}
-.special-sub{font-size:.78rem;color:rgba(255,255,255,.55);margin-top:2px}
-.special-cta{
-  flex-shrink:0;
-  background:#fff;color:var(--dark);
-  padding:10px 20px;border-radius:100px;
-  font-weight:700;font-size:.82rem;
-  white-space:nowrap;
-}
-@media(max-width:700px){
-  .special-banner{padding:32px 16px 0}
-  .special-card{padding:14px;gap:12px;flex-wrap:wrap}
-  .special-icon{width:46px;height:46px;font-size:1.3rem}
-  .special-name{font-size:.98rem}
-  .special-sub{font-size:.72rem}
-  .special-cta{width:100%;text-align:center;padding:11px 16px;font-size:.85rem;justify-content:center}
-}
-
 /* ── MENU SECTION — COMPACT TABBED ── */
 .menu-section{padding:80px 0 100px;background:var(--surface)}
 .menu-wrap{max-width:1000px;margin:0 auto;padding:0 28px}
@@ -1468,8 +1419,8 @@ footer{
 <section class="hero" aria-labelledby="hero-heading">
   <div class="hero-left">
     <div class="hero-tag reveal"><span class="line"></span> Dominican Street Food</div>
-    <h1 id="hero-heading" class="reveal">Real <span class="accent">Sabor</span> from the Island.</h1>
-    <p class="hero-desc reveal">Not your average spot. We bring the heat of Dominican street corners straight to Staten Island — chimis, mofongo, yaroa, frituras, and everything your stomach's been dreaming about.</p>
+    <h1 id="hero-heading" class="reveal">La Mejor <span class="accent">Fritura</span> Dominicana.</h1>
+    <p class="hero-desc reveal">Real Dominican street food at 611 Bay St, Staten Island. Chimis, mofongo, yaroa, empanadas — hand-made daily, the way they're supposed to taste.</p>
     <div class="hero-actions reveal">
       <a href="https://order.online/store/-31897311/?hideModal=true&utm_source=gfo&rwg_token=AFd1xnGzGELZSziXa2oJPRgkWZcxdvsc4mOVr5M_KGBFR9_Gh4G47ZeNIPNXB9y-mQR-x4u9dGRWzT3eD0MYM1sg2s4Z3bhvnQ%3D%3D&pickup=true" target="_blank" class="btn-fill">Order Pickup &rarr;</a>
       <a href="#menu-section" class="btn-ghost">See the Menu</a>
@@ -1515,19 +1466,6 @@ footer{
       <div class="bf-label">Menu Items</div>
     </div>
   </div>
-</section>
-
-<!-- TODAY'S SPECIAL -->
-<section class="special-banner" aria-label="Today's special">
-  <a href="https://order.online/store/-31897311/?hideModal=true&utm_source=gfo&rwg_token=AFd1xnGzGELZSziXa2oJPRgkWZcxdvsc4mOVr5M_KGBFR9_Gh4G47ZeNIPNXB9y-mQR-x4u9dGRWzT3eD0MYM1sg2s4Z3bhvnQ%3D%3D&pickup=true" target="_blank" class="special-card reveal">
-    <div class="special-icon" aria-hidden="true">🔥</div>
-    <div class="special-text">
-      <div class="special-label">Fan Favorite Combo</div>
-      <div class="special-name">Yaroa + Chimi + Jugo Natural</div>
-      <div class="special-sub">Three Dominican classics, one order. Save when you bundle.</div>
-    </div>
-    <span class="special-cta">Order &rarr;</span>
-  </a>
 </section>
 
 <!-- FEATURED / FAN FAVORITES -->
