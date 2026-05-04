@@ -326,11 +326,20 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.05)}
 .vb-card:hover .vb-arrow{color:var(--red);transform:translateX(3px)}
 .vb-icon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-weight:800;font-size:.8rem}
 .vb-icon img{border-radius:6px;width:18px;height:18px;object-fit:contain}
+.vb-icon .brand-mark{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-weight:900;letter-spacing:-0.04em;line-height:1;color:#fff;
+}
 .vb-icon.dd{background:#FF3008}
+.vb-icon.dd .brand-mark{font-size:.85rem}
 .vb-icon.gh{background:#F63440}
+.vb-icon.gh .brand-mark{font-size:1.15rem;font-style:italic}
 .vb-icon.ue{background:#06C167}
-.vb-icon.pm{background:#111}
+.vb-icon.ue .brand-mark{font-size:.6rem}
+.vb-icon.pm{background:#000}
+.vb-icon.pm .brand-mark{font-size:1.15rem}
 .vb-icon.sm{background:#F63440}
+.vb-icon.sm .brand-mark{font-size:1.25rem;font-style:italic}
 .vb-icon.pk{background:var(--red)}
 .vb-name{font-weight:700;font-size:.82rem;color:var(--dark)}
 .vb-sub{font-size:.68rem;color:var(--muted)}
@@ -495,12 +504,24 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.05)}
   0%{inset:-4px;opacity:.15}
   100%{inset:-12px;opacity:0}
 }
-.del-icon img{border-radius:8px}
+.del-icon img,.del-icon svg{border-radius:6px;display:block}
+.del-icon .brand-mark{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-weight:900;
+  letter-spacing:-0.04em;
+  line-height:1;
+  color:#fff;
+}
 .del-icon.doordash{background:#FF3008;border-color:#FF3008}
+.del-icon.doordash .brand-mark{font-size:1.05rem}
 .del-icon.grubhub{background:#F63440;border-color:#F63440}
+.del-icon.grubhub .brand-mark{font-size:1.4rem;font-style:italic}
 .del-icon.ubereats{background:#06C167;border-color:#06C167}
-.del-icon.postmates{background:#111;border:1px solid var(--border);border-color:#111}
+.del-icon.ubereats .brand-mark{font-size:.7rem;letter-spacing:-0.02em}
+.del-icon.postmates{background:#000;border:1px solid var(--border);border-color:#000}
+.del-icon.postmates .brand-mark{font-size:1.4rem}
 .del-icon.seamless{background:#F63440;border-color:#F63440}
+.del-icon.seamless .brand-mark{font-size:1.5rem;font-style:italic}
 .del-icon.pickup{background:var(--bg);border:1px solid var(--border);border-color:var(--muted)}
 .del-text{text-align:left}
 .del-text .del-name{font-weight:700;font-size:.88rem;color:var(--dark)}
@@ -1172,7 +1193,7 @@ footer{
     </div>
     <div class="delivery-grid">
       <a href="https://www.doordash.com/en-US/store/antojitos-rd-staten-island-31897311" target="_blank" class="del-card reveal">
-        <div class="del-icon doordash"><img src="https://cdn.doordash.com/static/img/favicon/favicon-32x32.png" alt="DoorDash" width="22"></div>
+        <div class="del-icon doordash"><span class="brand-mark" aria-label="DoorDash">Do</span></div>
         <div class="del-text">
           <div class="del-name">DoorDash</div>
           <div class="del-sub">Delivery fee $2.49</div>
@@ -1180,7 +1201,7 @@ footer{
         <span class="del-arrow">→</span>
       </a>
       <a href="https://www.grubhub.com/restaurant/antojitos-rd-611-bay-st-staten-island/9671776" target="_blank" class="del-card reveal">
-        <div class="del-icon grubhub"><img src="https://www.grubhub.com/favicon.ico" alt="Grubhub" width="22"></div>
+        <div class="del-icon grubhub"><span class="brand-mark" aria-label="Grubhub">g</span></div>
         <div class="del-text">
           <div class="del-name">Grubhub</div>
           <div class="del-sub">No delivery fee</div>
@@ -1188,7 +1209,7 @@ footer{
         <span class="del-arrow">→</span>
       </a>
       <a href="https://www.ubereats.com/store/antojitos-rd/oT0JnrLWUHSj9GlDwLLt0Q" target="_blank" class="del-card reveal">
-        <div class="del-icon ubereats"><img src="https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/31ee4fc38727.svg" alt="Uber Eats" width="22" style="filter:brightness(0) invert(1)"></div>
+        <div class="del-icon ubereats"><span class="brand-mark" aria-label="Uber Eats">Eats</span></div>
         <div class="del-text">
           <div class="del-name">Uber Eats</div>
           <div class="del-sub">Fees from $0.50</div>
@@ -1196,7 +1217,7 @@ footer{
         <span class="del-arrow">→</span>
       </a>
       <a href="https://postmates.com/store/antojitos-rd/oT0JnrLWUHSj9GlDwLLt0Q" target="_blank" class="del-card reveal">
-        <div class="del-icon postmates"><img src="https://postmates.com/favicon.ico" alt="Postmates" width="22"></div>
+        <div class="del-icon postmates"><span class="brand-mark" aria-label="Postmates">P</span></div>
         <div class="del-text">
           <div class="del-name">Postmates</div>
           <div class="del-sub">Fees from $0.50</div>
@@ -1204,7 +1225,7 @@ footer{
         <span class="del-arrow">→</span>
       </a>
       <a href="https://www.seamless.com/menu/antojitos-rd-611-bay-st-staten-island/9671776" target="_blank" class="del-card reveal">
-        <div class="del-icon seamless"><img src="https://www.seamless.com/favicon.ico" alt="Seamless" width="22"></div>
+        <div class="del-icon seamless"><span class="brand-mark" aria-label="Seamless">s</span></div>
         <div class="del-text">
           <div class="del-name">Seamless</div>
           <div class="del-sub">No delivery fee</div>
@@ -1212,7 +1233,7 @@ footer{
         <span class="del-arrow">→</span>
       </a>
       <a href="https://order.online/store/-31897311/?hideModal=true&utm_source=gfo&rwg_token=AFd1xnGzGELZSziXa2oJPRgkWZcxdvsc4mOVr5M_KGBFR9_Gh4G47ZeNIPNXB9y-mQR-x4u9dGRWzT3eD0MYM1sg2s4Z3bhvnQ%3D%3D&pickup=true" target="_blank" class="del-card reveal">
-        <div class="del-icon pickup">📦</div>
+        <div class="del-icon pickup"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
         <div class="del-text">
           <div class="del-name">Pickup</div>
           <div class="del-sub">Order ahead, skip the wait</div>
@@ -1306,27 +1327,27 @@ footer{
           <span class="vb-arrow">→</span>
         </a>
         <a href="https://www.doordash.com/en-US/store/antojitos-rd-staten-island-31897311" target="_blank" class="vb-card reveal">
-          <div class="vb-icon dd"><img src="https://cdn.doordash.com/static/img/favicon/favicon-32x32.png" alt="DD"></div>
+          <div class="vb-icon dd"><span class="brand-mark" aria-label="DoorDash">Do</span></div>
           <div><div class="vb-name">DoorDash</div><div class="vb-sub">Delivery $2.49</div></div>
           <span class="vb-arrow">→</span>
         </a>
         <a href="https://www.grubhub.com/restaurant/antojitos-rd-611-bay-st-staten-island/9671776" target="_blank" class="vb-card reveal">
-          <div class="vb-icon gh"><img src="https://www.grubhub.com/favicon.ico" alt="GH"></div>
+          <div class="vb-icon gh"><span class="brand-mark" aria-label="Grubhub">g</span></div>
           <div><div class="vb-name">Grubhub</div><div class="vb-sub">No delivery fee</div></div>
           <span class="vb-arrow">→</span>
         </a>
         <a href="https://www.ubereats.com/store/antojitos-rd/oT0JnrLWUHSj9GlDwLLt0Q" target="_blank" class="vb-card reveal">
-          <div class="vb-icon ue"><img src="https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/31ee4fc38727.svg" alt="UE" style="filter:brightness(0) invert(1)"></div>
+          <div class="vb-icon ue"><span class="brand-mark" aria-label="Uber Eats">Eats</span></div>
           <div><div class="vb-name">Uber Eats</div><div class="vb-sub">Fees from $0.50</div></div>
           <span class="vb-arrow">→</span>
         </a>
         <a href="https://www.seamless.com/menu/antojitos-rd-611-bay-st-staten-island/9671776" target="_blank" class="vb-card reveal">
-          <div class="vb-icon sm"><img src="https://www.seamless.com/favicon.ico" alt="SM"></div>
+          <div class="vb-icon sm"><span class="brand-mark" aria-label="Seamless">s</span></div>
           <div><div class="vb-name">Seamless</div><div class="vb-sub">No delivery fee</div></div>
           <span class="vb-arrow">→</span>
         </a>
         <a href="https://postmates.com/store/antojitos-rd/oT0JnrLWUHSj9GlDwLLt0Q" target="_blank" class="vb-card reveal">
-          <div class="vb-icon pm"><img src="https://postmates.com/favicon.ico" alt="PM"></div>
+          <div class="vb-icon pm"><span class="brand-mark" aria-label="Postmates">P</span></div>
           <div><div class="vb-name">Postmates</div><div class="vb-sub">Fees from $0.50</div></div>
           <span class="vb-arrow">→</span>
         </a>
