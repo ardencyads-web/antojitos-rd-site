@@ -6,6 +6,7 @@
 <title>Antojitos RD — Dominican Street Food | Staten Island, NY</title>
 <meta name="description" content="Antojitos RD — La Mejor Fritura Dominicana. Chimis, mofongo, yaroa, empanadas & more at 611 Bay St, Staten Island. Order pickup & delivery.">
 <meta name="theme-color" content="#D42B2B">
+<meta name="format-detection" content="telephone=no">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://antojitos-rd-site.vercel.app/">
 
@@ -131,7 +132,7 @@
   --t-base:.28s;
   --t-slow:.5s;
 }
-html{scroll-behavior:smooth;overflow-x:hidden;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;overflow-x:hidden;-webkit-text-size-adjust:100%;scroll-padding-top:72px}
 body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
 
 /* Keyboard focus indicator (visible only for keyboard users, not mouse) */
@@ -509,7 +510,7 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.05)}
   .feat-name{font-size:.95rem}
   .feat-desc{font-size:.74rem}
   .feat-price{font-size:1rem}
-  .feat-body{padding:12px 14px}
+  .feat-body{padding:14px 16px}
 }
 
 /* ── MENU SECTION — COMPACT TABBED ── */
@@ -543,7 +544,7 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.05)}
 .menu-search svg{width:16px;height:16px;fill:none;stroke:var(--muted);stroke-width:2;flex-shrink:0}
 .menu-search input{
   flex:1;border:none;outline:none;background:transparent;
-  font-family:'Outfit',sans-serif;font-size:.88rem;color:var(--dark);
+  font-family:'Outfit',sans-serif;font-size:16px;color:var(--dark);
   min-width:0;
 }
 .menu-search input::placeholder{color:var(--muted)}
@@ -1172,7 +1173,7 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.05)}
 /* ── MOBILE STICKY CTA ── */
 .mobile-cta-bar{
   display:none;
-  position:fixed;left:12px;right:12px;bottom:12px;
+  position:fixed;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));
   z-index:140;
   gap:8px;
   background:rgba(255,250,245,.92);
@@ -1195,7 +1196,7 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.05)}
 .mobile-cta-order:active{background:var(--red-deep)}
 .mobile-cta-call{
   display:flex;align-items:center;justify-content:center;
-  width:46px;height:46px;
+  width:48px;height:48px;
   background:var(--dark);color:#fff;
   border-radius:50%;
   text-decoration:none;
@@ -1451,11 +1452,11 @@ footer::before{
   .hero-actions{gap:10px;margin-bottom:20px}
   .hero-actions .btn-fill,
   .hero-actions .btn-ghost{
-    padding:12px 20px;font-size:.85rem;
+    padding:14px 22px;font-size:.9rem;min-height:48px;
     flex:1;justify-content:center;text-align:center;
   }
   .hero-info-row{flex-direction:row;gap:14px;flex-wrap:wrap}
-  .hero-info-item .icon-circle{width:28px;height:28px;font-size:.75rem}
+  .hero-info-item .icon-circle{width:32px;height:32px;font-size:.78rem}
   .hero-info-item .info-text .label{font-size:.65rem}
   .hero-info-item .info-text .value{font-size:.78rem}
   .hero-badge-float{display:none}
@@ -1475,7 +1476,7 @@ footer::before{
     gap:6px;
     -webkit-overflow-scrolling:touch;
   }
-  .mtab{padding:8px 14px;font-size:.75rem}
+  .mtab{padding:10px 16px;font-size:.78rem;min-height:40px;display:inline-flex;align-items:center}
   .menu-list{grid-template-columns:1fr}
   .ml-item{padding:14px 0 !important;border-left:none !important}
   .ml-item:hover{padding-left:0 !important}
@@ -1497,7 +1498,7 @@ footer::before{
   .delivery-header .delivery-sub{font-size:.82rem}
   .delivery-grid{grid-template-columns:1fr;gap:10px}
   .del-card{padding:16px 16px;gap:14px}
-  .del-icon{width:42px;height:42px;border-radius:11px}
+  .del-icon{width:46px;height:46px;border-radius:12px}
   .del-text .del-name{font-size:.88rem}
   .del-text .del-sub{font-size:.72rem}
   .del-card::before{background:var(--border) !important;animation:none !important}
@@ -1528,7 +1529,7 @@ footer::before{
   .vs-item{padding:16px}
   .vs-item::after{display:none !important}
   .vs-item:not(:last-child){border-bottom:1px solid var(--border)}
-  .vs-icon{width:36px;height:36px;font-size:.85rem}
+  .vs-icon{width:42px;height:42px;font-size:.9rem}
   .vs-val{font-size:.84rem}
   .vs-val .hours-line{font-size:.78rem}
   .vs-label{font-size:.6rem}
@@ -1566,7 +1567,7 @@ footer::before{
   .hero-info-item{gap:6px}
   .hero-actions{flex-direction:column}
   .hero-actions .btn-fill,.hero-actions .btn-ghost{width:100%;flex:none}
-  .mtab{padding:7px 12px;font-size:.7rem}
+  .mtab{padding:9px 14px;font-size:.74rem;min-height:38px}
   .ss-item .stat-num{font-size:1.4rem}
   .ss-item .ss-label{font-size:.62rem}
   .delivery-header h2{font-size:1.3rem}
@@ -2324,16 +2325,18 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger').forEach(el => revealObserver.observe(el));
 
-// ── PARALLAX on hero badges ──
-document.addEventListener('mousemove', (e) => {
-  const badges = document.querySelectorAll('.hero-badge-float');
-  const x = (e.clientX / window.innerWidth - 0.5) * 20;
-  const y = (e.clientY / window.innerHeight - 0.5) * 20;
-  badges.forEach((b, i) => {
-    const factor = i === 0 ? 1 : -1;
-    b.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
+// ── PARALLAX on hero badges (skip on touch / no-hover devices) ──
+if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  document.addEventListener('mousemove', (e) => {
+    const badges = document.querySelectorAll('.hero-badge-float');
+    const x = (e.clientX / window.innerWidth - 0.5) * 20;
+    const y = (e.clientY / window.innerHeight - 0.5) * 20;
+    badges.forEach((b, i) => {
+      const factor = i === 0 ? 1 : -1;
+      b.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
+    });
   });
-});
+}
 
 // ── COUNT-UP animation for stat numbers ──
 function animateCounter(el) {
