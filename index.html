@@ -1190,6 +1190,155 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.05)}
 }
 
 
+/* ── GALLERY ── */
+.gallery{padding:90px 0;background:var(--bg);position:relative;overflow:hidden}
+.gallery::before{
+  content:'';position:absolute;
+  width:520px;height:520px;
+  background:radial-gradient(circle,rgba(232,168,56,.06),transparent 70%);
+  border-radius:50%;
+  top:-180px;left:-120px;
+  pointer-events:none;
+}
+.gallery-inner{max-width:1100px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+.gallery-header{text-align:center;margin-bottom:44px}
+.gallery-header .section-tag{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  color:var(--red);margin-bottom:14px;
+}
+.gallery-header .section-tag::before,
+.gallery-header .section-tag::after{
+  content:'';width:24px;height:2px;background:var(--red);border-radius:2px;opacity:.5;
+}
+.gallery-header h2{
+  font-family:'Archivo Black',sans-serif;
+  font-size:clamp(1.8rem,3vw,2.4rem);
+  color:var(--dark);line-height:1.05;letter-spacing:-0.02em;
+  margin-bottom:14px;
+}
+.gallery-header .gallery-sub{
+  font-size:.92rem;color:var(--muted);
+  max-width:520px;margin:0 auto;line-height:1.6;
+}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  grid-auto-rows:140px;
+  gap:12px;
+}
+.gallery-tile{
+  position:relative;display:block;overflow:hidden;
+  border-radius:18px;text-decoration:none;color:#fff;
+  background:var(--surface);
+  transition:transform .35s ease, box-shadow .35s ease;
+}
+.gallery-tile img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .6s ease;
+}
+.gallery-tile:hover img{transform:scale(1.06)}
+.gallery-tile:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,0,0,.12)}
+.gallery-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.55),transparent 55%);
+  display:flex;align-items:flex-end;
+  padding:14px 16px;
+  opacity:0;transition:opacity .3s ease;
+}
+.gallery-tile:hover .gallery-overlay{opacity:1}
+.gallery-label{
+  font-family:'Archivo Black',sans-serif;
+  font-size:.95rem;color:#fff;letter-spacing:-0.01em;
+}
+/* Bento layout — first tile spans larger */
+.gallery-tile-1{grid-column:span 3;grid-row:span 2}
+.gallery-tile-2{grid-column:span 3;grid-row:span 1}
+.gallery-tile-3{grid-column:span 2;grid-row:span 1}
+.gallery-tile-4{grid-column:span 1;grid-row:span 1}
+.gallery-cta{
+  grid-column:span 2;grid-row:span 1;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:6px;padding:20px;text-align:center;
+  background:linear-gradient(135deg,var(--red),#B71F1F);
+  color:#fff;
+  border-radius:18px;
+  transition:transform .35s, box-shadow .35s;
+}
+.gallery-cta:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(212,43,43,.28)}
+.gallery-cta svg{opacity:.95}
+.gallery-cta-handle{
+  font-family:'Archivo Black',sans-serif;
+  font-size:1rem;letter-spacing:-0.01em;
+}
+.gallery-cta-text{font-size:.78rem;opacity:.9;font-weight:600}
+
+/* ── CATERING ── */
+.catering{padding:96px 0;background:var(--surface);position:relative;overflow:hidden}
+.catering::before{
+  content:'';position:absolute;
+  width:380px;height:380px;
+  background:radial-gradient(circle,rgba(212,43,43,.05),transparent 70%);
+  border-radius:50%;
+  bottom:-100px;right:-60px;
+  pointer-events:none;
+}
+.catering-inner{
+  max-width:1100px;margin:0 auto;padding:0 28px;
+  display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center;
+  position:relative;z-index:2;
+}
+.catering-photo{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 24px 60px rgba(0,0,0,.12)}
+.catering-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.catering-photo-tag{
+  position:absolute;left:18px;bottom:18px;
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,250,245,.95);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  padding:9px 14px;border-radius:100px;
+  font-size:.78rem;font-weight:700;color:var(--dark);
+  border:1px solid rgba(0,0,0,.06);
+  box-shadow:0 4px 14px rgba(0,0,0,.08);
+}
+.catering-photo-tag .cpt-icon{font-size:1rem}
+.catering-content .section-tag{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  color:var(--red);margin-bottom:14px;
+}
+.catering-content .section-tag::before,
+.catering-content .section-tag::after{
+  content:'';width:24px;height:2px;background:var(--red);border-radius:2px;opacity:.5;
+}
+.catering-content h2{
+  font-family:'Archivo Black',sans-serif;
+  font-size:clamp(1.9rem,3.2vw,2.6rem);
+  color:var(--dark);line-height:1.05;letter-spacing:-0.02em;
+  margin-bottom:18px;
+}
+.catering-sub{
+  font-size:1rem;color:var(--text);
+  line-height:1.7;margin-bottom:24px;max-width:520px;
+}
+.catering-points{
+  list-style:none;padding:0;margin:0 0 32px;
+  display:flex;flex-direction:column;gap:12px;
+}
+.catering-points li{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:.92rem;color:var(--text);line-height:1.5;
+}
+.cp-check{
+  flex-shrink:0;
+  width:22px;height:22px;border-radius:50%;
+  background:rgba(212,43,43,.1);color:var(--red);
+  display:inline-flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:.72rem;
+  margin-top:1px;
+}
+.catering-actions{display:flex;flex-wrap:wrap;gap:12px}
+.catering-actions .btn-fill svg{margin-right:2px;vertical-align:-2px}
+
 /* ── CTA STRIP ── */
 .cta{
   background:var(--red);
@@ -1594,6 +1743,37 @@ footer::before{
   .visit-bottom{grid-template-columns:1fr;gap:10px;margin-top:12px}
   .vb-card{padding:16px}
 
+  /* Gallery */
+  .gallery{padding:56px 0 64px}
+  .gallery-inner{padding:0 16px}
+  .gallery-header{margin-bottom:28px}
+  .gallery-header h2{font-size:1.5rem}
+  .gallery-header .gallery-sub{font-size:.84rem}
+  .gallery-grid{grid-template-columns:repeat(4,1fr);grid-auto-rows:90px;gap:8px}
+  .gallery-tile{border-radius:14px}
+  .gallery-tile-1{grid-column:span 4;grid-row:span 2}
+  .gallery-tile-2{grid-column:span 2;grid-row:span 1}
+  .gallery-tile-3{grid-column:span 2;grid-row:span 1}
+  .gallery-tile-4{grid-column:span 2;grid-row:span 1}
+  .gallery-cta{grid-column:span 2;grid-row:span 1;border-radius:14px;padding:14px 10px}
+  .gallery-cta svg{width:24px;height:24px}
+  .gallery-cta-handle{font-size:.82rem}
+  .gallery-cta-text{font-size:.66rem}
+  .gallery-overlay{opacity:1;background:linear-gradient(to top,rgba(0,0,0,.5),transparent 60%)}
+  .gallery-label{font-size:.78rem}
+
+  /* Catering */
+  .catering{padding:60px 0}
+  .catering-inner{grid-template-columns:1fr;gap:24px;padding:0 20px}
+  .catering-photo{aspect-ratio:5/4;border-radius:18px;max-height:340px}
+  .catering-photo-tag{font-size:.7rem;padding:7px 12px;left:14px;bottom:14px}
+  .catering-content h2{font-size:1.6rem}
+  .catering-sub{font-size:.92rem;margin-bottom:18px}
+  .catering-points{margin-bottom:24px;gap:10px}
+  .catering-points li{font-size:.88rem}
+  .catering-actions{flex-direction:column;gap:10px}
+  .catering-actions .btn-fill,.catering-actions .btn-ghost{width:100%;justify-content:center;text-align:center;padding:14px 22px}
+
   /* CTA */
   .cta{padding:48px 20px}
   .cta h2{font-size:1.4rem}
@@ -1995,6 +2175,42 @@ footer::before{
   </div>
 </section>
 
+<!-- GALLERY / INSTAGRAM TEASER -->
+<section class="gallery" aria-labelledby="gallery-heading">
+  <div class="gallery-inner">
+    <div class="gallery-header reveal">
+      <div class="section-tag">Fresh from the Kitchen</div>
+      <h2 id="gallery-heading">Real Food, Real Hungry People.</h2>
+      <p class="gallery-sub">Made by hand, every day. Follow along on Instagram for daily specials and behind-the-scenes.</p>
+    </div>
+    <div class="gallery-grid reveal">
+      <a href="https://www.instagram.com/antojitos1rd/" target="_blank" rel="noopener" class="gallery-tile gallery-tile-1" aria-label="Mofongo on Instagram">
+        <img src="assets/food-mofongo.jpg" alt="Mofongo" loading="lazy" decoding="async">
+        <span class="gallery-overlay"><span class="gallery-label">Mofongo</span></span>
+      </a>
+      <a href="https://www.instagram.com/antojitos1rd/" target="_blank" rel="noopener" class="gallery-tile gallery-tile-2" aria-label="Chimi on Instagram">
+        <img src="assets/food-chimi.jpg" alt="Chimi" loading="lazy" decoding="async">
+        <span class="gallery-overlay"><span class="gallery-label">Chimi</span></span>
+      </a>
+      <a href="https://www.instagram.com/antojitos1rd/" target="_blank" rel="noopener" class="gallery-tile gallery-tile-3" aria-label="Yaroa on Instagram">
+        <img src="assets/food-yaroa.jpg" alt="Yaroa" loading="lazy" decoding="async">
+        <span class="gallery-overlay"><span class="gallery-label">Yaroa</span></span>
+      </a>
+      <a href="https://www.instagram.com/antojitos1rd/" target="_blank" rel="noopener" class="gallery-tile gallery-tile-4" aria-label="Empanadas on Instagram">
+        <img src="assets/food-empanadas.jpg" alt="Empanadas" loading="lazy" decoding="async">
+        <span class="gallery-overlay"><span class="gallery-label">Empanadas</span></span>
+      </a>
+      <a href="https://www.instagram.com/antojitos1rd/" target="_blank" rel="noopener" class="gallery-tile gallery-cta" aria-label="Visit our Instagram">
+        <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+        <span class="gallery-cta-handle">@antojitos1rd</span>
+        <span class="gallery-cta-text">See more on Instagram →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- STORY / ABOUT -->
 <section class="story" id="story" aria-labelledby="story-heading">
   <div class="story-glow"></div>
@@ -2039,6 +2255,36 @@ footer::before{
         <p>La Mejor Fritura Dominicana</p>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- CATERING -->
+<section class="catering" id="catering" aria-labelledby="catering-heading">
+  <div class="catering-inner">
+    <div class="catering-photo reveal-left">
+      <img src="assets/food-yaroa.jpg" alt="Catering platter" loading="lazy" decoding="async">
+      <div class="catering-photo-tag" aria-hidden="true">
+        <span class="cpt-icon">🎉</span>
+        <span>For Every Celebration</span>
+      </div>
+    </div>
+    <div class="catering-content reveal-right">
+      <div class="section-tag">Catering &amp; Big Orders</div>
+      <h2 id="catering-heading">Cater Your Next Event</h2>
+      <p class="catering-sub">Quinceañeras, baptisms, office lunches, family reunions, backyard parties — we cook for every kind of celebration. Real Dominican food, made by hand, plenty for everyone.</p>
+      <ul class="catering-points">
+        <li><span class="cp-check" aria-hidden="true">✓</span> Group trays priced for crowds of 10–100+</li>
+        <li><span class="cp-check" aria-hidden="true">✓</span> Custom menus for dietary needs &amp; favorites</li>
+        <li><span class="cp-check" aria-hidden="true">✓</span> 48-hour notice preferred for big events</li>
+      </ul>
+      <div class="catering-actions">
+        <a href="tel:9294930916" class="btn-fill">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call to Plan
+        </a>
+        <a href="https://www.instagram.com/antojitos1rd/" target="_blank" rel="noopener" class="btn-ghost">DM on Instagram →</a>
+      </div>
     </div>
   </div>
 </section>
