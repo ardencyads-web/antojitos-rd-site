@@ -151,26 +151,18 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);over
 }
 ::-webkit-scrollbar-thumb:hover{background:rgba(212,43,43,.55);background-clip:padding-box}
 
-/* 3. Subtle SVG noise grain — adds tactile warmth */
-body::after{
-  content:'';position:fixed;inset:0;
-  pointer-events:none;z-index:9999;
-  opacity:.045;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-/* 4. Tabular numerals — prices/stats align cleanly */
+/* 3. Tabular numerals — prices/stats align cleanly */
 .feat-price,.ml-price,.stat-num,.rr-num,.bf-num,.del-sub{
   font-variant-numeric:tabular-nums;
   font-feature-settings:"tnum";
 }
 
-/* 5. Press feedback on primary buttons (subtle scale-down) */
+/* 4. Press feedback on primary buttons (subtle scale-down) */
 .btn-fill:active,.btn-ghost:active,.btn-white:active,
 .nav-order:active,.mobile-cta-order:active,
 .lang-toggle:active{transform:scale(.97)}
 
-/* 6. Animated underline for body text links */
+/* 5. Animated underline for body text links */
 .footer-list a,.reviews-cta a{
   position:relative;display:inline-block;
 }
