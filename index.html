@@ -133,7 +133,7 @@
   --t-slow:.5s;
 }
 html{scroll-behavior:smooth;overflow-x:hidden;-webkit-text-size-adjust:100%;scroll-padding-top:72px;scrollbar-width:thin;scrollbar-color:rgba(212,43,43,.35) var(--bg)}
-body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;position:relative}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;position:relative;overscroll-behavior-y:none}
 
 /* ── PREMIUM POLISH ── */
 /* 1. Brand-tinted text selection */
@@ -608,14 +608,15 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.05)}
   .trust-item{flex:0 0 calc(50% - 14px);gap:7px}
 }
 @media(max-width:700px){
-  .featured{padding:48px 0 20px}
-  .featured-inner{padding:0 16px}
+  .featured{padding:52px 0 32px}
+  .featured-inner{padding:0 20px}
   .featured-grid{gap:10px}
   .feat-photo{font-size:3.2rem}
   .feat-name{font-size:.95rem}
   .feat-desc{font-size:.74rem}
   .feat-price{font-size:1rem}
-  .feat-body{padding:14px 16px}
+  .feat-body{padding:14px 14px 16px}
+  .feat-badge{font-size:.55rem;padding:4px 8px;top:10px;left:10px}
 }
 
 /* ── MENU SECTION — COMPACT TABBED ── */
@@ -656,7 +657,8 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.05)}
 .menu-filters{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:18px}
 .menu-filter{
   background:var(--bg);border:1.5px solid var(--border);
-  border-radius:100px;padding:6px 14px;
+  border-radius:100px;padding:8px 16px;min-height:36px;
+  display:inline-flex;align-items:center;
   font-family:'Outfit',sans-serif;font-weight:600;font-size:.74rem;
   color:var(--muted);cursor:pointer;transition:all .2s;
 }
@@ -667,7 +669,7 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.05)}
 .menu-tabs-bar::-webkit-scrollbar{display:none}
 .mtab{flex-shrink:0;display:flex;align-items:center;gap:7px;padding:10px 20px;border-radius:100px;border:1.5px solid var(--border);background:var(--bg);font-family:'Outfit',sans-serif;font-weight:600;font-size:.82rem;color:var(--muted);cursor:pointer;transition:all .22s;white-space:nowrap}
 .mtab:hover{border-color:var(--red);color:var(--red)}
-.mtab.active{background:var(--dark);color:#fff;border-color:var(--dark);transform:scale(1.04)}
+.mtab.active{background:var(--dark);color:#fff;border-color:var(--dark);transform:scale(1.02)}
 .mtab .mtab-icon{font-size:1.1rem}
 .cat-header{display:flex;align-items:center;gap:14px;padding-bottom:18px;border-bottom:2px solid var(--dark);margin-bottom:0}
 .cat-header .ch-icon{width:44px;height:44px;background:var(--gold-pale);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
@@ -716,7 +718,7 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.05)}
 .vs-item{padding:24px 20px;display:flex;align-items:center;gap:14px;position:relative;transition:background .25s;text-decoration:none;color:var(--dark)}
 .vs-item:hover{background:rgba(0,0,0,.015)}
 .vs-item:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;bottom:20%;width:1px;background:var(--border)}
-.vs-icon{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s}
+.vs-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s}
 .vs-item:hover .vs-icon{transform:scale(1.08)}
 .vs-icon svg{width:18px;height:18px;stroke-width:2;stroke:currentColor;fill:none;stroke-linecap:round;stroke-linejoin:round}
 .vs-icon.red{background:rgba(212,43,43,.08);color:var(--red)}
@@ -733,7 +735,7 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.05)}
 .vb-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.04)}
 .vb-card .vb-arrow{margin-left:auto;color:rgba(0,0,0,.12);transition:all .25s;font-size:.85rem}
 .vb-card:hover .vb-arrow{color:var(--red);transform:translateX(3px)}
-.vb-icon{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:#fff;border:1px solid var(--border);overflow:hidden}
+.vb-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:#fff;border:1px solid var(--border);overflow:hidden}
 .vb-icon img{width:100%;height:100%;object-fit:contain;padding:4px;display:block}
 .vb-icon.ue img,.vb-icon.pm img,.vb-icon.sm img{padding:0}
 .vb-icon.ue,.vb-icon.pm{border-color:transparent}
@@ -1084,8 +1086,8 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.05)}
 
 @media(max-width:900px){.reviews-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:700px){
-  .reviews{padding:60px 0}
-  .reviews-inner{padding:0 16px}
+  .reviews{padding:56px 0 64px}
+  .reviews-inner{padding:0 20px}
   .reviews-top{margin-bottom:32px}
   .reviews-top h2{font-size:1.6rem;margin-bottom:18px}
   .reviews-grid{grid-template-columns:1fr;gap:14px}
@@ -1590,7 +1592,8 @@ footer{
     padding:14px 22px;font-size:.9rem;min-height:48px;
     flex:1;justify-content:center;text-align:center;
   }
-  .hero-info-row{flex-direction:row;gap:14px;flex-wrap:wrap}
+  .hero-info-row{flex-direction:row;gap:16px;flex-wrap:wrap}
+  .hero-info-item{gap:8px}
   .hero-info-item .icon-circle{width:32px;height:32px;font-size:.78rem}
   .hero-info-item .info-text .label{font-size:.65rem}
   .hero-info-item .info-text .value{font-size:.78rem}
@@ -1598,8 +1601,8 @@ footer{
   .hero-overlay{background:linear-gradient(to bottom,rgba(0,0,0,.05),rgba(0,0,0,.35)) !important}
 
   /* Menu */
-  .menu-section{padding:52px 0 60px}
-  .menu-wrap{padding:0 16px}
+  .menu-section{padding:56px 0 64px}
+  .menu-wrap{padding:0 20px}
   .menu-top{margin-bottom:24px}
   .menu-top h2{font-size:1.5rem}
   .menu-top .mt-sub{font-size:.82rem}
@@ -1626,7 +1629,7 @@ footer{
   .menu-order-cta .btn-fill{width:100%;justify-content:center;text-align:center;padding:14px 24px}
 
   /* Delivery */
-  .delivery-section{padding:48px 0 56px}
+  .delivery-section{padding:56px 0 64px}
   .delivery-inner{padding:0 20px}
   .delivery-header{margin-bottom:28px}
   .delivery-header h2{font-size:1.5rem}
@@ -1642,7 +1645,7 @@ footer{
 
   /* Story */
   .story{padding:56px 0 60px}
-  .story-inner{padding:0 22px;max-width:none}
+  .story-inner{padding:0 20px;max-width:none}
   .story-label{margin-bottom:12px}
   .story-label .sl-tag{font-size:.62rem;letter-spacing:2.5px}
   .story-label .sl-tag::before,.story-label .sl-tag::after{width:20px}
@@ -1662,7 +1665,7 @@ footer{
   .ss-item .ss-label{font-size:.6rem;letter-spacing:1.5px}
 
   /* Visit */
-  .visit{padding:60px 0}
+  .visit{padding:56px 0 64px}
   .visit-header{margin-bottom:32px}
   .visit-header h2{font-size:1.5rem}
   .visit-map{aspect-ratio:4/3;border-radius:14px;margin-bottom:16px}
@@ -1670,7 +1673,7 @@ footer{
   .vs-item{padding:16px}
   .vs-item::after{display:none !important}
   .vs-item:not(:last-child){border-bottom:1px solid var(--border)}
-  .vs-icon{width:42px;height:42px;font-size:.9rem}
+  .vs-icon{width:44px;height:44px;font-size:.9rem}
   .vs-val{font-size:.84rem}
   .vs-val .hours-line{font-size:.78rem}
   .vs-label{font-size:.6rem}
@@ -1679,7 +1682,7 @@ footer{
 
 
   /* CTA */
-  .cta{padding:48px 20px}
+  .cta{padding:52px 20px}
   .cta h2{font-size:1.4rem}
   .cta p{font-size:.88rem;margin-bottom:20px;padding:0 10px}
   .btn-white{padding:14px 32px;font-size:.9rem;width:100%;justify-content:center}
@@ -1705,19 +1708,24 @@ footer{
 @media(max-width:380px){
   .hero h1{font-size:1.65rem}
   .hero-desc{font-size:.82rem}
-  .hero-info-row{gap:10px}
-  .hero-info-item{gap:6px}
+  .hero-info-row{gap:12px}
+  .hero-info-item{gap:8px}
   .hero-actions{flex-direction:column}
   .hero-actions .btn-fill,.hero-actions .btn-ghost{width:100%;flex:none}
   .mtab{padding:9px 14px;font-size:.74rem;min-height:38px}
+  .ss-item{padding:0 8px}
   .ss-item .stat-num{font-size:1.4rem}
-  .ss-item .ss-label{font-size:.62rem}
+  .ss-item .ss-label{font-size:.6rem}
+  .ss-item:not(:last-child)::after{background:rgba(255,255,255,.12)}
   .delivery-header h2{font-size:1.3rem}
   .del-text .del-name{font-size:.84rem}
   .visit-header h2{font-size:1.3rem}
   .story-headline h2{font-size:1.3rem}
   .cta h2{font-size:1.2rem}
   .nav-logo-img{height:36px}
+  .feat-name{font-size:.88rem}
+  .feat-desc{font-size:.7rem}
+  .menu-filter{font-size:.7rem;padding:7px 12px}
 }
 
 </style>
