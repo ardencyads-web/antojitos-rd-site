@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Antojitos RD — Dominican Street Food | Staten Island, NY</title>
 <meta name="description" content="Antojitos RD — La Mejor Fritura Dominicana. Chimis, mofongo, yaroa, empanadas & more at 611 Bay St, Staten Island. Order pickup & delivery.">
 <meta name="theme-color" content="#D42B2B">
@@ -175,6 +175,79 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);over
   transition:transform .35s cubic-bezier(.2,.8,.2,1);
 }
 .footer-list a:hover::after,.reviews-cta a:hover::after{transform:scaleX(1)}
+
+/* ── CROSS-PLATFORM SCROLLING & PERF ── */
+/* Skip rendering below-fold sections until they're near the viewport.
+   Big win on long pages — keeps scroll wheel + touch flicks smooth. */
+.menu-section,.delivery-section,.reviews,.visit,.cta,footer{
+  content-visibility:auto;
+  contain-intrinsic-size:auto 800px;
+}
+/* GPU-promote elements that animate continuously so the compositor
+   handles them, not the main thread (smoother on every device). */
+.ticker-track,.hero-badge-float,.hero-scroll,.status-dot{
+  will-change:transform;
+  transform:translateZ(0);
+}
+/* Hover lifts only fire on devices with a real pointer (mouse/trackpad).
+   Prevents "stuck hover" on iPad/Android where a tap leaves the lifted
+   state showing until the next interaction. */
+@media(hover:none){
+  .feat-card:hover,.review-card:hover,.del-card:hover,
+  .vb-card:hover,.vs-item:hover,.info-card:hover,
+  .btn-fill:hover,.btn-ghost:hover,.btn-white:hover,.nav-order:hover{
+    transform:none !important;
+  }
+  .feat-card:hover .feat-photo img,
+  .gallery-tile:hover img{transform:none !important}
+}
+/* Tactile press feedback for touch devices on cards */
+@media(hover:none){
+  .feat-card:active,.review-card:active,.del-card:active,
+  .vb-card:active,.vs-item:active{
+    transform:scale(.985);
+    transition:transform .12s ease;
+  }
+}
+/* Use the dynamic viewport height when supported (iOS Safari URL bar
+   shrinks the visible area; svh tracks the visible portion). */
+@supports(height:100svh){
+  .nav-links.open{height:100svh}
+}
+
+/* iPad / tablet polish (between mobile and full desktop) */
+@media(min-width:701px) and (max-width:1024px){
+  .container,.featured-inner,.menu-wrap,.delivery-inner,
+  .reviews-inner,.trust-inner{padding-left:24px;padding-right:24px}
+  .featured-grid{grid-template-columns:repeat(2,1fr)}
+  .reviews-grid{grid-template-columns:repeat(2,1fr)}
+  .delivery-grid{grid-template-columns:repeat(2,1fr)}
+  .visit-bottom{grid-template-columns:repeat(3,1fr)}
+}
+
+/* Forced-colors / Windows high-contrast mode — keep readable */
+@media(forced-colors:active){
+  .btn-fill,.btn-ghost,.btn-white,.nav-order,.del-card,
+  .feat-card,.review-card,.vb-card,.vs-item,.mtab,.menu-filter{
+    border:1px solid CanvasText;
+  }
+  .hero h1 .accent,.story-headline h2 span{
+    -webkit-text-fill-color:currentColor;color:CanvasText;
+    background:none;
+  }
+}
+
+/* Print — clean menu printout */
+@media print{
+  nav,.ticker,.mobile-cta-bar,.hero-scroll,.hero-badge-float,
+  .delivery-section,.cta,.menu-tabs-bar,.menu-filters,
+  .menu-search-row{display:none !important}
+  body,.menu-section{background:#fff;color:#000}
+  .menu-section{padding:0}
+  .menu-list{grid-template-columns:1fr}
+  a{color:#000;text-decoration:none}
+  .ml-item{break-inside:avoid;page-break-inside:avoid}
+}
 
 /* Keyboard focus indicator (visible only for keyboard users, not mouse) */
 :focus{outline:none}
