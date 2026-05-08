@@ -179,7 +179,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);over
 /* ── CROSS-PLATFORM SCROLLING & PERF ── */
 /* GPU-promote elements that animate continuously so the compositor
    handles them, not the main thread (smoother on every device). */
-.ticker-track,.hero-badge-float,.hero-scroll,.status-dot{
+.ticker-track,.hero-badge-float,.status-dot{
   will-change:transform;
 }
 /* Hover lifts only fire on devices with a real pointer (mouse/trackpad).
@@ -232,7 +232,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);over
 
 /* Print — clean menu printout */
 @media print{
-  nav,.ticker,.mobile-cta-bar,.hero-scroll,.hero-badge-float,
+  nav,.ticker,.mobile-cta-bar,.hero-badge-float,
   .delivery-section,.cta,.menu-tabs-bar,.menu-filters,
   .menu-search-row{display:none !important}
   body,.menu-section{background:#fff;color:#000}
@@ -532,26 +532,6 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.05)}
 .hero-badge-float .bf-num{font-family:'Archivo Black',sans-serif;font-size:1.5rem;color:var(--red);letter-spacing:-0.01em}
 .hero-badge-float .bf-label{font-size:.7rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-top:2px}
 @keyframes floatBadge{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-
-/* Scroll cue */
-.hero-scroll{
-  position:absolute;
-  bottom:18px;left:50%;transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;gap:6px;
-  font-size:.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  color:var(--muted);
-  z-index:3;pointer-events:none;
-  animation:scrollHint 2.4s ease-in-out infinite;
-}
-.hero-scroll::after{
-  content:'';width:1px;height:24px;
-  background:linear-gradient(to bottom,var(--muted),transparent);
-}
-@keyframes scrollHint{
-  0%,100%{transform:translateX(-50%) translateY(0);opacity:.5}
-  50%{transform:translateX(-50%) translateY(4px);opacity:.9}
-}
-@media(max-width:1000px){.hero-scroll{display:none}}
 
 /* ── TRUST STRIP ── */
 .trust-strip{
@@ -1687,7 +1667,6 @@ footer{
       <div class="bf-label">Menu Items</div>
     </div>
   </div>
-  <div class="hero-scroll" aria-hidden="true">Scroll</div>
 </section>
 
 <!-- TRUST STRIP -->
