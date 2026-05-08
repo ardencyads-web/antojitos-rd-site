@@ -177,17 +177,10 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);over
 .footer-list a:hover::after,.reviews-cta a:hover::after{transform:scaleX(1)}
 
 /* ── CROSS-PLATFORM SCROLLING & PERF ── */
-/* Skip rendering below-fold sections until they're near the viewport.
-   Big win on long pages — keeps scroll wheel + touch flicks smooth. */
-.menu-section,.delivery-section,.reviews,.visit,.cta,footer{
-  content-visibility:auto;
-  contain-intrinsic-size:auto 800px;
-}
 /* GPU-promote elements that animate continuously so the compositor
    handles them, not the main thread (smoother on every device). */
 .ticker-track,.hero-badge-float,.hero-scroll,.status-dot{
   will-change:transform;
-  transform:translateZ(0);
 }
 /* Hover lifts only fire on devices with a real pointer (mouse/trackpad).
    Prevents "stuck hover" on iPad/Android where a tap leaves the lifted
