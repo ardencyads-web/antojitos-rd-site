@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/0.9">
+  <url>
+    <loc>https://antojitos-rd-site.vercel.app/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://antojitos-rd-site.vercel.app/assets/hero.jpg</image:loc>
+      <image:title>Antojitos RD — Dominican Street Food</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://antojitos-rd-site.vercel.app/assets/food-empanadas.jpg</image:loc>
+      <image:title>Empanada de Pollo con Queso</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://antojitos-rd-site.vercel.app/assets/food-chimi.jpg</image:loc>
+      <image:title>Chimi de Res</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://antojitos-rd-site.vercel.app/assets/food-mofongo.jpg</image:loc>
+      <image:title>Mofongo de Chicharrón</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://antojitos-rd-site.vercel.app/assets/food-yaroa.jpg</image:loc>
+      <image:title>Yaroa</image:title>
+    </image:image>
+  </url>
+</urlset>

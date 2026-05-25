@@ -75,7 +75,44 @@
   "sameAs": [
     "https://www.instagram.com/antojitos1rd/"
   ],
-  "acceptsReservations": false
+  "acceptsReservations": false,
+  "hasMenu": {
+    "@type": "Menu",
+    "name": "Antojitos RD Menu",
+    "hasMenuSection": [
+      {
+        "@type": "MenuSection",
+        "name": "Empanadas",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Empanada de Pollo con Queso", "offers": { "@type": "Offer", "price": "2.50", "priceCurrency": "USD" } },
+          { "@type": "MenuItem", "name": "Empanada de Queso", "offers": { "@type": "Offer", "price": "2.50", "priceCurrency": "USD" } },
+          { "@type": "MenuItem", "name": "Empanada de Carne con Queso", "offers": { "@type": "Offer", "price": "2.50", "priceCurrency": "USD" } }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Chimis",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Chimi de Res", "offers": { "@type": "Offer", "price": "11.00", "priceCurrency": "USD" } }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Mofongo",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Mofongo de Chicharrón", "offers": { "@type": "Offer", "price": "17.50", "priceCurrency": "USD" } }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Yaroa",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Yaroa Large", "offers": { "@type": "Offer", "price": "14.00", "priceCurrency": "USD" } }
+        ]
+      }
+    ]
+  },
+  "menu": "https://antojitos-rd-site.vercel.app/#menu-section"
 }
 </script>
 
@@ -83,6 +120,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="assets/hero.jpg" imagesrcset="assets/hero-mobile.jpg 600w, assets/hero.jpg 1200w" imagesizes="(max-width:1000px) 100vw, 50vw" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- DNS prefetch for destinations a customer is likely to hit (delivery apps, maps) -->
+<link rel="dns-prefetch" href="https://order.online">
+<link rel="dns-prefetch" href="https://www.doordash.com">
+<link rel="dns-prefetch" href="https://www.grubhub.com">
+<link rel="dns-prefetch" href="https://www.ubereats.com">
+<link rel="dns-prefetch" href="https://postmates.com">
+<link rel="dns-prefetch" href="https://www.seamless.com">
+<link rel="dns-prefetch" href="https://www.google.com">
+<link rel="dns-prefetch" href="https://www.instagram.com">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -2507,16 +2554,17 @@ document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger').forE
 
 </script>
 
-<!--
-  ANALYTICS — Choose ONE option and uncomment.
-  ─────────────────────────────────────────────
-  OPTION A: Vercel Analytics (free, zero-config)
-  Just enable it in your Vercel dashboard → Analytics tab.
-  No code change needed.
+<!-- Vercel Web Analytics (page views, visitors) — privacy-friendly, no cookies needed.
+     Requires Analytics enabled in the Vercel dashboard → Analytics tab. -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
 
-  OPTION B: Google Analytics 4
-  Replace G-XXXXXXXXXX with your GA4 Measurement ID.
--->
+<!-- Vercel Speed Insights (Core Web Vitals) — enable in dashboard → Speed Insights. -->
+<script defer src="/_vercel/speed-insights/script.js"></script>
+
+<!-- Alternative: Google Analytics 4 — uncomment + replace G-XXXXXXXXXX if you'd rather use GA4. -->
 <!--
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://antojitos-rd-site.vercel.app/sitemap.xml
